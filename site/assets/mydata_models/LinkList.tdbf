@@ -1,0 +1,228 @@
+{
+	"dataModelName": "LinkList",
+	"databaseConfigName": "default",
+	"tableName": {
+		"create": "t_link",
+		"read": "t_link",
+		"update": "t_link",
+		"delete": "t_link"
+	},
+	"fields": [
+		{
+			"isKey": true,
+			"notNull": true,
+			"name": "src_hw_addr",
+			"caption": "Src HW Addr",
+			"dataType": "varchar",
+			"dataLength": 255,
+			"defaultValue": "",
+			"createForm": {
+				"used": true,
+				"readOnly": false,
+				"notNull": true,
+				"visible": true,
+				"ctlObj": "txtString",
+				"defaultValue": "",
+				"lookupValue": "",
+				"extAttr": "",
+				"note": ""
+			},
+			"updateForm": {
+				"used": true,
+				"readOnly": true,
+				"notNull": true,
+				"visible": true,
+				"ctlObj": "txtString",
+				"defaultValue": "",
+				"lookupValue": "",
+				"extAttr": "",
+				"note": ""
+			},
+			"viewTable": {
+				"sqlSelect": true,
+				"visible": true,
+				"listValue": false,
+				"exportExcel": true,
+				"selectReturn": false,
+				"textBefore": "",
+				"textAfter": "",
+				"lookupValue": "",
+				"colPos": 2,
+				"cellExtAttr": ""
+			}
+		},
+		{
+			"isKey": false,
+			"notNull": true,
+			"name": "src_type",
+			"caption": "Src Type",
+			"dataType": "varchar",
+			"dataLength": 255,
+			"defaultValue": "",
+			"createForm": {
+				"used": true,
+				"readOnly": false,
+				"notNull": true,
+				"visible": true,
+				"ctlObj": "txtString",
+				"defaultValue": "",
+				"lookupValue": "",
+				"extAttr": "",
+				"note": ""
+			},
+			"updateForm": {
+				"used": true,
+				"readOnly": false,
+				"notNull": true,
+				"visible": true,
+				"ctlObj": "txtString",
+				"defaultValue": "",
+				"lookupValue": "",
+				"extAttr": "",
+				"note": ""
+			},
+			"viewTable": {
+				"sqlSelect": true,
+				"visible": true,
+				"listValue": false,
+				"exportExcel": true,
+				"selectReturn": false,
+				"textBefore": "",
+				"textAfter": "",
+				"lookupValue": "",
+				"colPos": 3,
+				"cellExtAttr": ""
+			}
+		},
+		{
+			"isKey": false,
+			"notNull": true,
+			"name": "dst_hw_addr",
+			"caption": "Dst HW Addr",
+			"dataType": "varchar",
+			"dataLength": 255,
+			"defaultValue": "",
+			"createForm": {
+				"used": true,
+				"readOnly": false,
+				"notNull": true,
+				"visible": true,
+				"ctlObj": "txtString",
+				"defaultValue": "",
+				"lookupValue": "",
+				"extAttr": "",
+				"note": ""
+			},
+			"updateForm": {
+				"used": true,
+				"readOnly": false,
+				"notNull": true,
+				"visible": true,
+				"ctlObj": "txtString",
+				"defaultValue": "",
+				"lookupValue": "",
+				"extAttr": "",
+				"note": ""
+			},
+			"viewTable": {
+				"sqlSelect": true,
+				"visible": true,
+				"listValue": false,
+				"exportExcel": true,
+				"selectReturn": false,
+				"textBefore": "",
+				"textAfter": "",
+				"lookupValue": "",
+				"colPos": 5,
+				"cellExtAttr": ""
+			}
+		},
+		{
+			"isKey": false,
+			"notNull": true,
+			"name": "dst_type",
+			"caption": "Dst Type",
+			"dataType": "varchar",
+			"dataLength": 255,
+			"defaultValue": "",
+			"createForm": {
+				"used": true,
+				"readOnly": false,
+				"notNull": true,
+				"visible": true,
+				"ctlObj": "txtString",
+				"defaultValue": "",
+				"lookupValue": "",
+				"extAttr": "",
+				"note": ""
+			},
+			"updateForm": {
+				"used": true,
+				"readOnly": false,
+				"notNull": true,
+				"visible": true,
+				"ctlObj": "txtString",
+				"defaultValue": "",
+				"lookupValue": "",
+				"extAttr": "",
+				"note": ""
+			},
+			"viewTable": {
+				"sqlSelect": true,
+				"visible": true,
+				"listValue": false,
+				"exportExcel": true,
+				"selectReturn": false,
+				"textBefore": "",
+				"textAfter": "",
+				"lookupValue": "",
+				"colPos": 6,
+				"cellExtAttr": ""
+			}
+		}
+	],
+	"extCols": [
+		{
+			"name": "src_info",
+			"caption": "Src Info",
+			"visible": true,
+			"exportExcel": true,
+			"colPos": 4,
+			"cellExtAttr": ""
+		},
+		{
+			"name": "dst_info",
+			"caption": "Dst Info",
+			"visible": true,
+			"exportExcel": true,
+			"colPos": 7,
+			"cellExtAttr": ""
+		}
+	],
+	"features": {
+		"view": true,
+		"create": false,
+		"update": false,
+		"delete": false,
+		"importExcel": false,
+		"importExcelUpdateOnDuplicate": false,
+		"exportExcel": false,
+		"deleteExcel": false,
+		"select": false,
+		"filterPanel": true,
+		"viewPreference": true
+	},
+	"otherParam": {
+		"sectionHeader": "Link List",
+		"sectionNote": "",
+		"preFilterSql": "",
+		"preFilterNote": "",
+		"editColPos": 1,
+		"deleteColPos": 0,
+		"defaultSection": "view",
+		"defaultRecordPerPage": 200,
+		"defaultOrderBy": "src_hw_addr",
+		"defaultOrderMode": "asc",
+		"viewTableRowExtAttr": ""
+	}
+}

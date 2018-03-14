@@ -1,0 +1,177 @@
+{
+	"dataModelName": "AppPrivilege",
+	"databaseConfigName": "tdbfAdmin",
+	"tableName": {
+		"create": "tbl_privilege",
+		"read": "tbl_privilege",
+		"update": "tbl_privilege",
+		"delete": "tbl_privilege"
+	},
+	"fields": [
+		{
+			"isKey": true,
+			"notNull": true,
+			"name": "id",
+			"caption": "ID",
+			"dataType": "varchar",
+			"dataLength": 50,
+			"defaultValue": "",
+			"createForm": {
+				"used": true,
+				"readOnly": false,
+				"notNull": true,
+				"visible": true,
+				"ctlObj": "txtString",
+				"defaultValue": "",
+				"lookupValue": "",
+				"extAttr": "",
+				"note": ""
+			},
+			"updateForm": {
+				"used": true,
+				"readOnly": true,
+				"notNull": true,
+				"visible": true,
+				"ctlObj": "txtString",
+				"defaultValue": "",
+				"lookupValue": "",
+				"extAttr": "",
+				"note": ""
+			},
+			"viewTable": {
+				"sqlSelect": true,
+				"visible": true,
+				"listValue": false,
+				"exportExcel": true,
+				"selectReturn": true,
+				"textBefore": "",
+				"textAfter": "",
+				"lookupValue": "",
+				"colPos": 3,
+				"cellExtAttr": ""
+			}
+		},
+		{
+			"isKey": false,
+			"notNull": true,
+			"name": "name",
+			"caption": "Name",
+			"dataType": "varchar",
+			"dataLength": 50,
+			"defaultValue": "",
+			"createForm": {
+				"used": true,
+				"readOnly": false,
+				"notNull": true,
+				"visible": true,
+				"ctlObj": "txtString",
+				"defaultValue": "",
+				"lookupValue": "",
+				"extAttr": "",
+				"note": ""
+			},
+			"updateForm": {
+				"used": true,
+				"readOnly": false,
+				"notNull": true,
+				"visible": true,
+				"ctlObj": "txtString",
+				"defaultValue": "",
+				"lookupValue": "",
+				"extAttr": "",
+				"note": ""
+			},
+			"viewTable": {
+				"sqlSelect": true,
+				"visible": true,
+				"listValue": false,
+				"exportExcel": true,
+				"selectReturn": false,
+				"textBefore": "",
+				"textAfter": "",
+				"lookupValue": "",
+				"colPos": 4,
+				"cellExtAttr": ""
+			}
+		},
+		{
+			"isKey": false,
+			"notNull": false,
+			"name": "desc",
+			"caption": "Description",
+			"dataType": "varchar",
+			"dataLength": 200,
+			"defaultValue": "",
+			"createForm": {
+				"used": true,
+				"readOnly": false,
+				"notNull": false,
+				"visible": true,
+				"ctlObj": "txtArea",
+				"defaultValue": "",
+				"lookupValue": "",
+				"extAttr": "",
+				"note": ""
+			},
+			"updateForm": {
+				"used": true,
+				"readOnly": false,
+				"notNull": false,
+				"visible": true,
+				"ctlObj": "txtArea",
+				"defaultValue": "",
+				"lookupValue": "",
+				"extAttr": "",
+				"note": ""
+			},
+			"viewTable": {
+				"sqlSelect": true,
+				"visible": true,
+				"listValue": false,
+				"exportExcel": true,
+				"selectReturn": false,
+				"textBefore": "",
+				"textAfter": "",
+				"lookupValue": "",
+				"colPos": 5,
+				"cellExtAttr": ""
+			}
+		}
+	],
+	"extCols": [
+		{
+			"name": "appAction",
+			"caption": "App Action",
+			"visible": true,
+			"exportExcel": false,
+			"colPos": 6,
+			"cellExtAttr": ""
+		}
+	],
+	"features": {
+		"view": true,
+		"create": true,
+		"update": true,
+		"delete": true,
+		"importExcel": true,
+		"importExcelUpdateOnDuplicate": true,
+		"exportExcel": true,
+		"deleteExcel": true,
+		"select": true,
+		"filterPanel": true,
+		"viewPreference": true
+	},
+	"otherParam": {
+		"sectionHeader": "App Privilege",
+		"sectionNote": "",
+		"preFilterSql": "",
+		"preFilterNote": "",
+		"editColPos": 2,
+		"deleteColPos": 1,
+		"defaultSection": "view",
+		"defaultRecordPerPage": 200,
+		"defaultOrderBy": "id",
+		"defaultOrderMode": "asc",
+		"viewTableRowExtAttr": ""
+	}
+}

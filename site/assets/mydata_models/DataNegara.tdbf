@@ -1,0 +1,125 @@
+{
+	"dataModelName": "DataNegara",
+	"databaseConfigName": "prodiproduksi",
+	"tableName": {
+		"create": "t_negara",
+		"read": "t_negara",
+		"update": "t_negara",
+		"delete": "t_negara"
+	},
+	"fields": [
+		{
+			"isKey": true,
+			"notNull": true,
+			"name": "id",
+			"caption": "ID",
+			"dataType": "int",
+			"dataLength": 255,
+			"defaultValue": "",
+			"createForm": {
+				"used": true,
+				"readOnly": false,
+				"notNull": true,
+				"visible": true,
+				"ctlObj": "txtInteger",
+				"defaultValue": "",
+				"lookupValue": "",
+				"extAttr": "",
+				"note": ""
+			},
+			"updateForm": {
+				"used": true,
+				"readOnly": true,
+				"notNull": true,
+				"visible": true,
+				"ctlObj": "txtInteger",
+				"defaultValue": "",
+				"lookupValue": "",
+				"extAttr": "",
+				"note": ""
+			},
+			"viewTable": {
+				"sqlSelect": true,
+				"visible": true,
+				"listValue": false,
+				"exportExcel": true,
+				"selectReturn": false,
+				"textBefore": "",
+				"textAfter": "",
+				"lookupValue": "",
+				"colPos": 2,
+				"cellExtAttr": ""
+			}
+		},
+		{
+			"isKey": false,
+			"notNull": true,
+			"name": "nama",
+			"caption": "Nama",
+			"dataType": "varchar",
+			"dataLength": 255,
+			"defaultValue": "",
+			"createForm": {
+				"used": true,
+				"readOnly": false,
+				"notNull": true,
+				"visible": true,
+				"ctlObj": "txtString",
+				"defaultValue": "",
+				"lookupValue": "",
+				"extAttr": "",
+				"note": ""
+			},
+			"updateForm": {
+				"used": true,
+				"readOnly": false,
+				"notNull": true,
+				"visible": true,
+				"ctlObj": "txtString",
+				"defaultValue": "",
+				"lookupValue": "",
+				"extAttr": "",
+				"note": ""
+			},
+			"viewTable": {
+				"sqlSelect": true,
+				"visible": true,
+				"listValue": false,
+				"exportExcel": true,
+				"selectReturn": false,
+				"textBefore": "",
+				"textAfter": "",
+				"lookupValue": "",
+				"colPos": 3,
+				"cellExtAttr": ""
+			}
+		}
+	],
+	"extCols": [],
+	"features": {
+		"view": true,
+		"create": true,
+		"update": true,
+		"delete": true,
+		"importExcel": true,
+		"importExcelUpdateOnDuplicate": false,
+		"exportExcel": true,
+		"deleteExcel": true,
+		"select": true,
+		"filterPanel": true,
+		"viewPreference": true
+	},
+	"otherParam": {
+		"sectionHeader": "Data Kota",
+		"sectionNote": "",
+		"preFilterSql": "",
+		"preFilterNote": "",
+		"editColPos": 1,
+		"deleteColPos": 0,
+		"defaultSection": "view",
+		"defaultRecordPerPage": 200,
+		"defaultOrderBy": "id",
+		"defaultOrderMode": "asc",
+		"viewTableRowExtAttr": ""
+	}
+}

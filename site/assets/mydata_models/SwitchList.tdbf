@@ -1,0 +1,107 @@
+{
+	"dataModelName": "SwitchList",
+	"databaseConfigName": "default",
+	"tableName": {
+		"create": "t_switch",
+		"read": "t_switch",
+		"update": "t_switch",
+		"delete": "t_switch"
+	},
+	"fields": [
+		{
+			"isKey": true,
+			"notNull": true,
+			"name": "dpid",
+			"caption": "DPID",
+			"dataType": "bigint",
+			"dataLength": 255,
+			"defaultValue": "",
+			"createForm": {
+				"used": true,
+				"readOnly": false,
+				"notNull": true,
+				"visible": true,
+				"ctlObj": "txtInteger",
+				"defaultValue": "",
+				"lookupValue": "",
+				"extAttr": "",
+				"note": ""
+			},
+			"updateForm": {
+				"used": true,
+				"readOnly": true,
+				"notNull": true,
+				"visible": true,
+				"ctlObj": "txtInteger",
+				"defaultValue": "",
+				"lookupValue": "",
+				"extAttr": "",
+				"note": ""
+			},
+			"viewTable": {
+				"sqlSelect": true,
+				"visible": true,
+				"listValue": false,
+				"exportExcel": true,
+				"selectReturn": false,
+				"textBefore": "",
+				"textAfter": "",
+				"lookupValue": "",
+				"colPos": 2,
+				"cellExtAttr": ""
+			}
+		}
+	],
+	"extCols": [
+		{
+			"name": "ipv4",
+			"caption": "IPV4",
+			"visible": true,
+			"exportExcel": true,
+			"colPos": 3,
+			"cellExtAttr": ""
+		},
+		{
+			"name": "ipv6",
+			"caption": "IPV6",
+			"visible": true,
+			"exportExcel": true,
+			"colPos": 4,
+			"cellExtAttr": ""
+		},
+		{
+			"name": "route",
+			"caption": "Route",
+			"visible": true,
+			"exportExcel": false,
+			"colPos": 5,
+			"cellExtAttr": ""
+		}
+	],
+	"features": {
+		"view": true,
+		"create": false,
+		"update": false,
+		"delete": false,
+		"importExcel": false,
+		"importExcelUpdateOnDuplicate": false,
+		"exportExcel": false,
+		"deleteExcel": false,
+		"select": false,
+		"filterPanel": true,
+		"viewPreference": true
+	},
+	"otherParam": {
+		"sectionHeader": "Switch List",
+		"sectionNote": "",
+		"preFilterSql": "",
+		"preFilterNote": "",
+		"editColPos": 1,
+		"deleteColPos": 0,
+		"defaultSection": "view",
+		"defaultRecordPerPage": 200,
+		"defaultOrderBy": "dpid",
+		"defaultOrderMode": "asc",
+		"viewTableRowExtAttr": ""
+	}
+}

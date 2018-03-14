@@ -1,0 +1,1 @@
+ryu-manager /usr/local/lib/python2.7/dist-packages/ryu/app/ofctl_rest.py /usr/local/lib/python2.7/dist-packages/ryu/app/rest_conf_switch.py /usr/local/lib/python2.7/dist-packages/ryu/app/rest_topology.py &>> /home/tarom/sdn-tutorial/shell-capture/ryu.capture &

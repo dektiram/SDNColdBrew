@@ -1,0 +1,218 @@
+[
+    {
+        "id":"administrator",
+        "label":"Administrator",
+        "icon":"fa fa-dashboard",
+        "hintText":"Administrator",
+        "linkType":"internal",
+        "linkUrl":"#",
+        "sub":[
+            {
+                "id":"appAction",
+                "label":"App Action",
+                "icon":"glyphicon glyphicon-flash",
+                "hintText":"App Action",
+                "linkType":"internal",
+                "linkUrl":"Administrator/appAction"
+            },
+            {
+                "id":"appPrivilege",
+                "label":"App Privilege",
+                "icon":"fa fa-group",
+                "hintText":"App Privilege",
+                "linkType":"internal",
+                "linkUrl":"Administrator/appPrivilege"
+            },
+            {
+                "id":"appUserAccount",
+                "label":"App User Account",
+                "icon":"fa fa-user",
+                "hintText":"App User Account",
+                "linkType":"internal",
+                "linkUrl":"Administrator/appUserAccount"
+            }
+        ]
+    },
+    {
+        "id":"environment",
+        "label":"Environment",
+        "icon":"fa fa-cubes",
+        "hintText":"Environment",
+        "linkType":"internal",
+        "linkUrl":"Environment"
+    },
+    {
+        "id":"network",
+        "label":"Network",
+        "icon":"fa fa-sitemap",
+        "hintText":"Network",
+        "linkType":"internal",
+        "linkUrl":"#",
+        "sub":[
+        	{
+                "id":"discovery",
+                "label":"Discovery",
+                "icon":"fa fa-cc-discover",
+                "hintText":"Discovery",
+                "linkType":"internal",
+                "linkUrl":"Network/discovery"
+            },
+        	{
+                "id":"viewTopology",
+                "label":"Topology",
+                "icon":"fa fa-sitemap",
+                "hintText":"Topology",
+                "linkType":"internal",
+                "linkUrl":"Network/viewTopology"
+            },
+        	{
+                "id":"viewSwitchList",
+                "label":"Switch",
+                "icon":"fa fa-exchange",
+                "hintText":"Switch",
+                "linkType":"internal",
+                "linkUrl":"Network/viewSwitchList"
+            },
+        	{
+                "id":"viewSwitchPortList",
+                "label":"Switch - Port",
+                "icon":"fa fa-exchange",
+                "hintText":"Switch - Port",
+                "linkType":"internal",
+                "linkUrl":"Network/viewSwitchPortList"
+            },
+        	{
+                "id":"viewHostList",
+                "label":"Host",
+                "icon":"fa fa-desktop",
+                "hintText":"Host",
+                "linkType":"internal",
+                "linkUrl":"Network/viewHostList"
+            },
+        	{
+                "id":"viewLinkList",
+                "label":"Link",
+                "icon":"fa fa-arrows",
+                "hintText":"Link",
+                "linkType":"internal",
+                "linkUrl":"Network/viewLinkList"
+            }
+        ]
+    },
+    {
+        "id":"monitoring",
+        "label":"Monitoring",
+        "icon":"fa fa-area-chart",
+        "hintText":"Monitoring",
+        "linkType":"internal",
+        "linkUrl":"#",
+        "sub":[
+        	{
+                "id":"pathLoad",
+                "label":"Path Load",
+                "icon":"fa fa-area-chart",
+                "hintText":"Path Load",
+                "linkType":"internal",
+                "linkUrl":"Monitoring/pathLoad"
+            },
+        	{
+                "id":"flowLoad",
+                "label":"Flow Load",
+                "icon":"fa fa-area-chart",
+                "hintText":"Flow Load",
+                "linkType":"internal",
+                "linkUrl":"Monitoring/flowLoad"
+            }
+        ]
+    },
+    {
+        "id":"openflow",
+        "label":"Openflow",
+        "icon":"fa fa-random",
+        "hintText":"Openflow",
+        "linkType":"internal",
+        "linkUrl":"#",
+        "sub":[
+        	{
+                "id":"getFlowTable",
+                "label":"Get Flow Table",
+                "icon":"fa fa-arrow-circle-down",
+                "hintText":"Get Flow Table",
+                "linkType":"internal",
+                "linkUrl":"Openflow/getFlowTable"
+            }
+        ]
+    },
+    {
+        "id":"tools",
+        "label":"Tools",
+        "icon":"fa fa-wrench",
+        "hintText":"Tools",
+        "linkType":"internal",
+        "linkUrl":"#",
+        "sub":[
+        	{
+                "id":"mininetCli",
+                "label":"Mininet CLI",
+                "icon":"fa fa-fire",
+                "hintText":"Mininet CLI",
+                "linkType":"internal",
+                "linkUrl":"#",
+                "sub":[
+                	{
+                		"id":"mininetCommandProcessList",
+		                "label":"Command Process List",
+		                "icon":"fa fa-fire",
+		                "hintText":"Command Process List",
+		                "linkType":"internal",
+		                "linkUrl":"Tools/mininetCommandProcessList"
+                	},
+                	{
+                		"id":"mininetCliSync",
+		                "label":"Synchronous",
+		                "icon":"fa fa-fire",
+		                "hintText":"Synchronous",
+		                "linkType":"internal",
+		                "linkUrl":"Tools/mininetCliSync"
+                	},
+                	{
+                		"id":"mininetCliAsync",
+		                "label":"Asynchronous",
+		                "icon":"fa fa-fire",
+		                "hintText":"Asynchronous",
+		                "linkType":"internal",
+		                "linkUrl":"Tools/mininetCliAsync"
+                	}
+                ]
+            },
+        	{
+                "id":"toolOfctl",
+                "label":"Ofctl",
+                "icon":"fa fa-retweet",
+                "hintText":"Ofctl",
+                "linkType":"internal",
+                "linkUrl":"#",
+                "sub":[
+                	
+                ]
+            },
+        	{
+                "id":"toolRouter",
+                "label":"Router",
+                "icon":"fa fa-retweet",
+                "hintText":"Router",
+                "linkType":"internal",
+                "linkUrl":"#"
+                
+            }
+        ]
+    },
+    {
+        "id":"settings",
+        "label":"Settings",
+        "icon":"fa fa-gears",
+        "hintText":"Settings",
+        "linkType":"internal",
+        "linkUrl":"settings/settings"
+    }
+]

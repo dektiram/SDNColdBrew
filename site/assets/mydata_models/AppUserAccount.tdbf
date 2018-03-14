@@ -1,0 +1,271 @@
+{
+	"dataModelName": "AppUserAccount",
+	"databaseConfigName": "tdbfAdmin",
+	"tableName": {
+		"create": "tbl_user_account",
+		"read": "tbl_user_account",
+		"update": "tbl_user_account",
+		"delete": "tbl_user_account"
+	},
+	"fields": [
+		{
+			"isKey": true,
+			"notNull": true,
+			"name": "id",
+			"caption": "ID",
+			"dataType": "varchar",
+			"dataLength": 50,
+			"defaultValue": "",
+			"createForm": {
+				"used": true,
+				"readOnly": false,
+				"notNull": true,
+				"visible": true,
+				"ctlObj": "txtString",
+				"defaultValue": "",
+				"lookupValue": "",
+				"extAttr": "",
+				"note": ""
+			},
+			"updateForm": {
+				"used": true,
+				"readOnly": true,
+				"notNull": true,
+				"visible": true,
+				"ctlObj": "txtString",
+				"defaultValue": "",
+				"lookupValue": "",
+				"extAttr": "",
+				"note": ""
+			},
+			"viewTable": {
+				"sqlSelect": true,
+				"visible": true,
+				"listValue": false,
+				"exportExcel": true,
+				"selectReturn": false,
+				"textBefore": "",
+				"textAfter": "",
+				"lookupValue": "",
+				"colPos": 3,
+				"cellExtAttr": ""
+			}
+		},
+		{
+			"isKey": false,
+			"notNull": true,
+			"name": "name",
+			"caption": "Name",
+			"dataType": "varchar",
+			"dataLength": 50,
+			"defaultValue": "",
+			"createForm": {
+				"used": true,
+				"readOnly": false,
+				"notNull": true,
+				"visible": true,
+				"ctlObj": "txtString",
+				"defaultValue": "",
+				"lookupValue": "",
+				"extAttr": "",
+				"note": ""
+			},
+			"updateForm": {
+				"used": true,
+				"readOnly": false,
+				"notNull": true,
+				"visible": true,
+				"ctlObj": "txtString",
+				"defaultValue": "",
+				"lookupValue": "",
+				"extAttr": "",
+				"note": ""
+			},
+			"viewTable": {
+				"sqlSelect": true,
+				"visible": true,
+				"listValue": false,
+				"exportExcel": true,
+				"selectReturn": false,
+				"textBefore": "",
+				"textAfter": "",
+				"lookupValue": "",
+				"colPos": 4,
+				"cellExtAttr": ""
+			}
+		},
+		{
+			"isKey": false,
+			"notNull": true,
+			"name": "password",
+			"caption": "Password",
+			"dataType": "varchar",
+			"dataLength": 50,
+			"defaultValue": "",
+			"createForm": {
+				"used": true,
+				"readOnly": false,
+				"notNull": true,
+				"visible": true,
+				"ctlObj": "txtPassword",
+				"defaultValue": "",
+				"lookupValue": "",
+				"extAttr": "",
+				"note": ""
+			},
+			"updateForm": {
+				"used": true,
+				"readOnly": false,
+				"notNull": true,
+				"visible": true,
+				"ctlObj": "txtPassword",
+				"defaultValue": "",
+				"lookupValue": "",
+				"extAttr": "",
+				"note": ""
+			},
+			"viewTable": {
+				"sqlSelect": true,
+				"visible": false,
+				"listValue": false,
+				"exportExcel": true,
+				"selectReturn": false,
+				"textBefore": "",
+				"textAfter": "",
+				"lookupValue": "",
+				"colPos": 5,
+				"cellExtAttr": ""
+			}
+		},
+		{
+			"isKey": false,
+			"notNull": true,
+			"name": "enable",
+			"caption": "Enable",
+			"dataType": "boolean",
+			"dataLength": 0,
+			"defaultValue": "",
+			"createForm": {
+				"used": true,
+				"readOnly": false,
+				"notNull": true,
+				"visible": true,
+				"ctlObj": "checkbox",
+				"defaultValue": "",
+				"lookupValue": "",
+				"extAttr": "",
+				"note": ""
+			},
+			"updateForm": {
+				"used": true,
+				"readOnly": false,
+				"notNull": true,
+				"visible": true,
+				"ctlObj": "checkbox",
+				"defaultValue": "",
+				"lookupValue": "",
+				"extAttr": "",
+				"note": ""
+			},
+			"viewTable": {
+				"sqlSelect": true,
+				"visible": true,
+				"listValue": false,
+				"exportExcel": true,
+				"selectReturn": false,
+				"textBefore": "",
+				"textAfter": "",
+				"lookupValue": "",
+				"colPos": 6,
+				"cellExtAttr": ""
+			}
+		},
+		{
+			"isKey": false,
+			"notNull": false,
+			"name": "desc",
+			"caption": "Description",
+			"dataType": "varchar",
+			"dataLength": 200,
+			"defaultValue": "",
+			"createForm": {
+				"used": true,
+				"readOnly": false,
+				"notNull": false,
+				"visible": true,
+				"ctlObj": "txtArea",
+				"defaultValue": "",
+				"lookupValue": "",
+				"extAttr": "",
+				"note": ""
+			},
+			"updateForm": {
+				"used": true,
+				"readOnly": false,
+				"notNull": false,
+				"visible": true,
+				"ctlObj": "txtArea",
+				"defaultValue": "",
+				"lookupValue": "",
+				"extAttr": "",
+				"note": ""
+			},
+			"viewTable": {
+				"sqlSelect": true,
+				"visible": true,
+				"listValue": false,
+				"exportExcel": true,
+				"selectReturn": false,
+				"textBefore": "",
+				"textAfter": "",
+				"lookupValue": "",
+				"colPos": 7,
+				"cellExtAttr": ""
+			}
+		}
+	],
+	"extCols": [
+		{
+			"name": "privilege",
+			"caption": "Privilege",
+			"visible": true,
+			"exportExcel": false,
+			"colPos": 8,
+			"cellExtAttr": ""
+		},
+		{
+			"name": "outletId",
+			"caption": "ID Outlet",
+			"visible": true,
+			"exportExcel": false,
+			"colPos": 9,
+			"cellExtAttr": ""
+		}
+	],
+	"features": {
+		"view": true,
+		"create": true,
+		"update": true,
+		"delete": true,
+		"importExcel": true,
+		"importExcelUpdateOnDuplicate": true,
+		"exportExcel": true,
+		"deleteExcel": true,
+		"select": false,
+		"filterPanel": true,
+		"viewPreference": true
+	},
+	"otherParam": {
+		"sectionHeader": "App User Account",
+		"sectionNote": "",
+		"preFilterSql": "id!=\"superuser\"",
+		"preFilterNote": "",
+		"editColPos": 2,
+		"deleteColPos": 1,
+		"defaultSection": "view",
+		"defaultRecordPerPage": 200,
+		"defaultOrderBy": "id",
+		"defaultOrderMode": "asc",
+		"viewTableRowExtAttr": ""
+	}
+}

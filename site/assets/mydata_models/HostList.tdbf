@@ -1,0 +1,185 @@
+{
+	"dataModelName": "HostList",
+	"databaseConfigName": "default",
+	"tableName": {
+		"create": "t_host",
+		"read": "t_host",
+		"update": "t_host",
+		"delete": "t_host"
+	},
+	"fields": [
+		{
+			"isKey": true,
+			"notNull": true,
+			"name": "hw_addr",
+			"caption": "HW Addr",
+			"dataType": "varchar",
+			"dataLength": 255,
+			"defaultValue": "",
+			"createForm": {
+				"used": true,
+				"readOnly": false,
+				"notNull": true,
+				"visible": true,
+				"ctlObj": "txtString",
+				"defaultValue": "",
+				"lookupValue": "",
+				"extAttr": "",
+				"note": ""
+			},
+			"updateForm": {
+				"used": true,
+				"readOnly": true,
+				"notNull": true,
+				"visible": true,
+				"ctlObj": "txtString",
+				"defaultValue": "",
+				"lookupValue": "",
+				"extAttr": "",
+				"note": ""
+			},
+			"viewTable": {
+				"sqlSelect": true,
+				"visible": true,
+				"listValue": false,
+				"exportExcel": true,
+				"selectReturn": false,
+				"textBefore": "",
+				"textAfter": "",
+				"lookupValue": "",
+				"colPos": 2,
+				"cellExtAttr": ""
+			}
+		},
+		{
+			"isKey": false,
+			"notNull": true,
+			"name": "hostname",
+			"caption": "*) Hostname",
+			"dataType": "varchar",
+			"dataLength": 255,
+			"defaultValue": "",
+			"createForm": {
+				"used": true,
+				"readOnly": false,
+				"notNull": true,
+				"visible": true,
+				"ctlObj": "txtString",
+				"defaultValue": "",
+				"lookupValue": "",
+				"extAttr": "",
+				"note": ""
+			},
+			"updateForm": {
+				"used": true,
+				"readOnly": false,
+				"notNull": true,
+				"visible": true,
+				"ctlObj": "txtString",
+				"defaultValue": "",
+				"lookupValue": "",
+				"extAttr": "",
+				"note": ""
+			},
+			"viewTable": {
+				"sqlSelect": true,
+				"visible": true,
+				"listValue": false,
+				"exportExcel": true,
+				"selectReturn": false,
+				"textBefore": "",
+				"textAfter": "",
+				"lookupValue": "",
+				"colPos": 3,
+				"cellExtAttr": ""
+			}
+		},
+		{
+			"isKey": false,
+			"notNull": true,
+			"name": "route",
+			"caption": "*) Route",
+			"dataType": "varchar",
+			"dataLength": 255,
+			"defaultValue": "",
+			"createForm": {
+				"used": true,
+				"readOnly": false,
+				"notNull": true,
+				"visible": true,
+				"ctlObj": "txtString",
+				"defaultValue": "",
+				"lookupValue": "",
+				"extAttr": "",
+				"note": ""
+			},
+			"updateForm": {
+				"used": true,
+				"readOnly": false,
+				"notNull": true,
+				"visible": true,
+				"ctlObj": "txtString",
+				"defaultValue": "",
+				"lookupValue": "",
+				"extAttr": "",
+				"note": ""
+			},
+			"viewTable": {
+				"sqlSelect": true,
+				"visible": true,
+				"listValue": false,
+				"exportExcel": true,
+				"selectReturn": false,
+				"textBefore": "",
+				"textAfter": "",
+				"lookupValue": "",
+				"colPos": 6,
+				"cellExtAttr": ""
+			}
+		}
+	],
+	"extCols": [
+		{
+			"name": "ipv4",
+			"caption": "*) IPV4",
+			"visible": true,
+			"exportExcel": true,
+			"colPos": 4,
+			"cellExtAttr": ""
+		},
+		{
+			"name": "ipv6",
+			"caption": "*) IPV6",
+			"visible": true,
+			"exportExcel": true,
+			"colPos": 5,
+			"cellExtAttr": ""
+		}
+	],
+	"features": {
+		"view": true,
+		"create": false,
+		"update": false,
+		"delete": false,
+		"importExcel": false,
+		"importExcelUpdateOnDuplicate": false,
+		"exportExcel": false,
+		"deleteExcel": false,
+		"select": false,
+		"filterPanel": true,
+		"viewPreference": true
+	},
+	"otherParam": {
+		"sectionHeader": "Host List",
+		"sectionNote": "Column with \"*\" is several or all data only available on mininet use.",
+		"preFilterSql": "",
+		"preFilterNote": "",
+		"editColPos": 1,
+		"deleteColPos": 0,
+		"defaultSection": "view",
+		"defaultRecordPerPage": 200,
+		"defaultOrderBy": "hw_addr",
+		"defaultOrderMode": "asc",
+		"viewTableRowExtAttr": ""
+	}
+}

@@ -1,0 +1,175 @@
+.verticaltext {
+    transform: rotate(-90deg);
+    transform-origin: right, top;
+    -ms-transform: rotate(-90deg);
+    -ms-transform-origin:right, top;
+    -webkit-transform: rotate(-90deg);
+    -webkit-transform-origin:right, top;
+}
+.tableheader-xs {
+  font-size: 12px;
+  font-weight:bold;
+}
+.tablebody-xs {
+  font-size: 12px;
+}
+.tabledatarow {
+  vertical-align:top;
+    padding:0px;
+}
+.table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td{
+    padding:0px;
+}
+.tabledatacell {
+    padding:1px;
+}
+div.ui-datepicker{
+ font-size:10px;
+}
+.myPointerCursor{
+    cursor:pointer;
+}
+.myLabelTextButton{
+    color:#0000FF;
+}
+.mySmallRedItalic{
+    color:#FF0000;
+    font-size: x-small;
+    font-style: italic;
+}
+.myOverlayPage {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    filter:alpha(opacity=50);
+    -moz-opacity:0.5;
+    -khtml-opacity: 0.5;
+    opacity: 0.5;
+    z-index: 10000;
+    vertical-align: middle;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.rotate {
+  /* Something you can count on */
+  height: 140px;
+  white-space: nowrap;
+}
+
+.rotate > div {
+  transform: 
+    /* Magic Numbers */
+    translate(25px, 51px)
+    /* 45 is really 360 - 45 */
+    rotate(270deg);
+  width: 30px;
+}
+.rotate > div > span {
+  border-bottom: 1px solid #ccc;
+  padding: 5px 10px;
+}
+
+.netGraphCanvas{
+	height: 500px;
+}
+
+.flowTableBlock {
+  display: block;
+  height: 250px;
+  overflow: auto;
+}
+
+.treViewBlock {
+  display: block;
+  height: 300px;
+  overflow: auto;
+}
+
+.rowForwardRule {
+    background-color: #F6DDCC;
+    height: 5px;
+}
+
+.rowReverseRule {
+    background-color: #FCf3CF;
+    height: 5px;
+}
+
+.textareaFullWidth{
+	min-width: 100%;
+	min-height: 75px;
+	font-size: smaller;
+}
+
+.chartLineThreshold {
+	stroke:red;
+	stroke-dasharray:10 10;
+	stroke-width:1;
+}
+.chartShadedThreshold{
+	fill:red;
+	fill-opacity:1;
+}
+
+.netObjInfo{
+	position: absolute;
+	top:0;
+	right:0;
+	z-index: 99;
+}
+
+.netObjInfo .box{
+	background-color:rgba(255,255,255,.5);
+	margin-bottom: 0px!important;
+	margin-top: 15px!important;
+}
+.netObjInfo .box .box-header{
+	background-color: rgba(0, 166, 90,.7)!important;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+#netObjInfoBody{
+	overflow-y: scroll
+}
+
+.mininetCliDisplay{
+	max-height: 600px;
+	background-color: rgb(0,0,0);
+	overflow-y: scroll;
+	padding: 5px
+}
+
+.mininetCliDisplayCommand{
+	font-family: System;
+	font-size: smaller;
+	color: rgb(0,0,255);
+	background-color: rgb(0,0,0);
+	padding: 0px;
+	margin: 0px;
+	border: none
+}
+
+.mininetCliDisplayOutputSuccess{
+	font-family: System;
+	font-size: smaller;
+	color: rgb(0,255,0);
+	background-color: rgb(0,0,0);
+	padding: 0px;
+	margin: 0px;
+	border: none
+}
+
+.mininetCliDisplayOutputError{
+	font-family: System;
+	font-size: smaller;
+	color: rgb(255,0,0);
+	background-color: rgb(0,0,0);
+	padding: 0px;
+	margin: 0px;
+	border: none
+}

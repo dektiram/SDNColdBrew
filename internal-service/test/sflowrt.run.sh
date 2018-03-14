@@ -1,0 +1,1 @@
+/bin/bash /home/tarom/sdn-tutorial/sflow-rt/start.sh &>> /home/tarom/sdn-tutorial/shell-capture/sflowrt.capture &

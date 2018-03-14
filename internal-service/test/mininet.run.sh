@@ -1,0 +1,1 @@
+python /home/tarom/sdn-tutorial/additional-mininet-topo-script/dsi-topo.py &>> /home/tarom/sdn-tutorial/shell-capture/mininet.capture
