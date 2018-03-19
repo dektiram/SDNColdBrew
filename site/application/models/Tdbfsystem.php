@@ -323,4 +323,24 @@ class TdbfSystem extends CI_Model {
 		$query->free_result();
 		return $pAr1;
 	}
+	function myCurl($url, $postData, $formatReply = 'text', $timeout = 60){
+		$ch = curl_init();
+		curl_setopt($ch,CURLOPT_URL, $url);
+		curl_setopt($ch,CURLOPT_RETURNTRANSFER, TRUE);
+		curl_setopt($ch,CURLOPT_TIMEOUT, $timeout);
+		if(sizeof($postData)>0){
+			foreach($postData as $key=>$value) { $fields_string .= $key.'='.$value.'&'; }
+			rtrim($fields_string, '&');
+			curl_setopt($ch,CURLOPT_POST, count($postData));
+			curl_setopt($ch,CURLOPT_POSTFIELDS, $fields_string);
+		}
+	    $content  = curl_exec($ch);
+	    curl_close($ch);
+		//print $content;
+		if($formatReply == 'json'){
+			return json_decode($content, TRUE);
+		}else{
+			return $content;
+		}
+	}
 }

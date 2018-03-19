@@ -1,0 +1,50 @@
+{
+	"change_label" : {"name": "Change label", "icon": ""},
+	"ofctl": {
+		"name": "OFCTL", "icon": "",
+		"items": {
+			"ofctl_get" : {"name": "Retrieve the switch stats", "icon": "",
+				"items": {
+					"ofctl_get_desc_stats" : {"name": "Desc stats", "icon": ""},
+					"ofctl_get_all_flows_stats" : {"name": "All flows stats", "icon": ""},
+					"ofctl_get_flows_stats_filtered_by_field" : {"name": "Flows stats filtered by fields", "icon": ""},
+					"ofctl_get_aggregate_flow_stats" : {"name": "Aggregate flow stats", "icon": ""},
+					"ofctl_get_aggregate_flow_stats_filtered_by_fields" : {"name": "Aggregate flow stats filtered by fields", "icon": ""},
+					"ofctl_get_table_stats" : {"name": "Table stats", "icon": ""},
+				"ofctl_get_table_features" : {"name": "Table features", "icon": ""},
+					"ofctl_get_ports_stats" : {"name": "Ports stats", "icon": ""},
+					"ofctl_get_ports_description" : {"name": "Ports description", "icon": ""},
+					"ofctl_get_queues_stats" : {"name": "Queues stats", "icon": ""},
+					"ofctl_get_queues_config" : {"name": "Queues config", "icon": ""},
+					"ofctl_get_queues_description" : {"name": "Queues description", "icon": ""},
+					"ofctl_get_groups_stats" : {"name": "Groups stats", "icon": ""},
+					"ofctl_get_group_description_stats" : {"name": "Group description stats", "icon": ""},
+					"ofctl_get_group_features_stats" : {"name": "Group features stats", "icon": ""},
+					"ofctl_get_meters_stats" : {"name": "Meters stats", "icon": ""},
+					"ofctl_get_meter_config_stats" : {"name": "Meter config stats", "icon": ""},
+					"ofctl_get_meter_description_stats" : {"name": "Meter description stats", "icon": ""},
+					"ofctl_get_meter_features_stats" : {"name": "Meter features stats", "icon": ""},
+					"ofctl_get_role" : {"name": "Role", "icon": ""}
+				}
+			},
+			"ofctl_set" : {"name": "Update the switch stats", "icon": "",
+				"items": {
+					"ofctl_setadd_a_flow_entry" : {"name": "Add a flow entry", "icon": ""},
+					"ofctl_setmodify_all_matching_flow_entries" : {"name": "Modify all matching flow entries", "icon": ""},
+					"ofctl_setmodify_flow_entry_strictly" : {"name": "Modify flow entry strictly", "icon": ""},
+					"ofctl_setdelete_all_matching_flow_entries" : {"name": "Delete all matching flow entries", "icon": ""},
+					"ofctl_setdelete_flow_entry_strictly" : {"name": "Delete flow entry strictly", "icon": ""},
+					"ofctl_setdelete_all_flow_entries" : {"name": "Delete all flow entries", "icon": ""},
+				"ofctl_setadd_a_group_entry" : {"name": "Add a group entry", "icon": ""},
+					"ofctl_setmodify_a_group_entry" : {"name": "Modify a group entry", "icon": ""},
+					"ofctl_setdelete_a_group_entry" : {"name": "Delete a group entry", "icon": ""},
+					"ofctl_setmodify_the_behavior_of_the_port" : {"name": "Modify the behavior of the port", "icon": ""},
+					"ofctl_setadd_a_meter_entry" : {"name": "Add a meter entry", "icon": ""},
+					"ofctl_setmodify_a_meter_entry" : {"name": "Modify a meter entry", "icon": ""},
+					"ofctl_setdelete_a_meter_entry" : {"name": "Delete a meter entry", "icon": ""},
+					"ofctl_setmodify_role" : {"name": "Modify role", "icon": ""}
+				}
+			}
+		}
+	}
+}

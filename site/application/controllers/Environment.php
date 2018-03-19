@@ -98,6 +98,7 @@ class Environment extends CI_Controller {
 	    curl_setopt_array($ch, $options);
 	    $infoAllContent  = curl_exec($ch);
 	    curl_close($ch);
+		//print $infoAllContent;
 		$dtProcessAllInfo = json_decode($infoAllContent, TRUE)['data'];
 		//print '<pre>';
 		//print_r($dtProcessAllInfo);

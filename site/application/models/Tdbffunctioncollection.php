@@ -126,73 +126,24 @@ class TdbfFunctionCollection extends CI_Model {
 
 	////FUNGSI TAMBAHAN UNTUK APLIKASI
 	
-	public function angkaTerbilang($x){
-  		$abil = array("", "satu", "dua", "tiga", "empat", "lima", "enam", "tujuh", "delapan", "sembilan", "sepuluh", "sebelas");
-		if ($x < 12)
-			return " " . $abil[$x];
-		elseif ($x < 20)
-			return $this->angkaTerbilang($x - 10) . "belas";
-		elseif ($x < 100)
-			return $this->angkaTerbilang($x / 10) . " puluh" . $this->angkaTerbilang($x % 10);
-		elseif ($x < 200)
-			return " seratus" . $this->angkaTerbilang($x - 100);
-		elseif ($x < 1000)
-			return $this->angkaTerbilang($x / 100) . " ratus" . $this->angkaTerbilang($x % 100);
-		elseif ($x < 2000)
-			return " seribu" . $this->angkaTerbilang($x - 1000);
-		elseif ($x < 1000000)
-			return $this->angkaTerbilang($x / 1000) . " ribu" . $this->angkaTerbilang($x % 1000);
-		elseif ($x < 1000000000)
-			return $this->angkaTerbilang($x / 1000000) . " juta" . $this->angkaTerbilang($x % 1000000);
-	}
-	public function integerToRoman($integer){
-	 // Convert the integer into an integer (just to make sure)
-	 $integer = intval($integer);
-	 $result = '';
-	 
-	 // Create a lookup array that contains all of the Roman numerals.
-	 $lookup = array('M' => 1000,
-	 'CM' => 900,
-	 'D' => 500,
-	 'CD' => 400,
-	 'C' => 100,
-	 'XC' => 90,
-	 'L' => 50,
-	 'XL' => 40,
-	 'X' => 10,
-	 'IX' => 9,
-	 'V' => 5,
-	 'IV' => 4,
-	 'I' => 1);
-	 
-	 foreach($lookup as $roman => $value){
-	  // Determine the number of matches
-	  $matches = intval($integer/$value);
-	 
-	  // Add the same number of characters to the string
-	  $result .= str_repeat($roman,$matches);
-	 
-	  // Set the integer to be the remainder of the integer and the value
-	  $integer = $integer % $value;
-	 }
-	 
-	 // The Roman numeral should be built, return it
-	 return $result;
-	}
-	
-	public function getMininetHostnameList(){
-		//$mininetUtilDir = $this->tdbfGet1x1Result('select `val` from `tbl_setting` where `id`="mininet_util_dir"');
-		$hostList = array();
-		$cmd = 'ps ax | grep "mininet\:h" | grep bash';
-		$x1 = trim(shell_exec($cmd));
-		$x2 = explode(chr(10), $x1);
-		foreach ($x2 as $value) {
-			$x3 = explode(':', trim($value));
-			$hostname = trim($x3[sizeof($x3)-1]);
-			if($hostname != ''){
-				array_push($hostList,$x3[sizeof($x3)-1]);
-			}
+	function myCurl($url, $postData, $formatReply = 'text', $timeout = 60){
+		$ch = curl_init();
+		curl_setopt($ch,CURLOPT_URL, $url);
+		curl_setopt($ch,CURLOPT_RETURNTRANSFER, TRUE);
+		curl_setopt($ch,CURLOPT_TIMEOUT, $timeout);
+		if(sizeof($postData)>0){
+			foreach($postData as $key=>$value) { $fields_string .= $key.'='.$value.'&'; }
+			rtrim($fields_string, '&');
+			curl_setopt($ch,CURLOPT_POST, count($postData));
+			curl_setopt($ch,CURLOPT_POSTFIELDS, $fields_string);
 		}
-		return $hostList;
+	    $content  = curl_exec($ch);
+	    curl_close($ch);
+		//print $content;
+		if($formatReply == 'json'){
+			return json_decode($content, TRUE);
+		}else{
+			return $content;
+		}
 	}
 }

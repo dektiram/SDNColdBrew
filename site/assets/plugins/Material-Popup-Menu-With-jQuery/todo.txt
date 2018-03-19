@@ -1,0 +1,6 @@
+-Should create my own 'material' scrollbar
+-Add menu items with icons
+-Add submenus
+-Prefix css with 'sm-'
+-Implement the rest of material
+	-Toolbar

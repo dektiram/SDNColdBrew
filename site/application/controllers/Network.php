@@ -161,7 +161,7 @@ class Network extends CI_Controller {
 			$dtReply['data']['switches'] = $dtSwitches;
 			foreach ($dtSwitches as $key1 => $dtSwitch) {
 				foreach ($dtSwitch['ports'] as $key2 => $swPort) {
-					$strSql1 = 'insert ignore into t_switch (`dpid`) values ("'.$swPort['dpid'].'")';
+					$strSql1 = 'insert ignore into t_switch (`dpid`,`label`) values ("'.$swPort['dpid'].'","'.$swPort['dpid'].'")';
 					$this->TdbfSystem->tdbfExecSQL($strSql1);
 					$strSql2 = 'insert into t_switch_port (`hw_addr`,`name`,`port_no`,`dpid`) values ("'.$swPort['hw_addr'].'","'.$swPort['name'].'",'.$swPort['port_no'].',"'.$swPort['dpid'].'")';
 					$this->TdbfSystem->tdbfExecSQL($strSql2);
@@ -200,11 +200,13 @@ class Network extends CI_Controller {
 			$dtLinks = $this->myCurl($ryuApiUrl.'v1.0/topology/links', null, 'json');
 			$dtReply['data']['links'] = $dtLinks;
 			foreach ($dtLinks as $key1 => $dtLink) {
-				$strSql3 = 'insert into t_link (`src_hw_addr`,`src_type`,`dst_hw_addr`,`dst_type`) values ('.
+				$strSql3 = 'insert into t_link (`src_hw_addr`,`src_type`,`dst_hw_addr`,`dst_type`,`label`) values ('.
 							'"'.$dtLink['src']['hw_addr'].'",'.
 							'"SWITCH",'.
 							'"'.$dtLink['dst']['hw_addr'].'",'.
-							'"SWITCH")';
+							'"SWITCH",'.
+							'""'.
+							')';
 				$this->TdbfSystem->tdbfExecSQL($strSql3);
 			}
 			
@@ -212,13 +214,15 @@ class Network extends CI_Controller {
 			$dtHosts = $this->myCurl($ryuApiUrl.'v1.0/topology/hosts', null, 'json');
 			$dtReply['data']['hosts'] = $dtHosts;
 			foreach ($dtHosts as $key1 => $dtHost) {
-				$strSql4 = 'insert into t_host (`hw_addr`) values ("'.$dtHost['mac'].'")';
+				$strSql4 = 'insert into t_host (`hw_addr`,`label`) values ("'.$dtHost['mac'].'","'.$dtHost['mac'].'")';
 				$this->TdbfSystem->tdbfExecSQL($strSql4);
-				$strSql5 = 'insert into t_link (`src_hw_addr`,`src_type`,`dst_hw_addr`,`dst_type`) values ('.
+				$strSql5 = 'insert into t_link (`src_hw_addr`,`src_type`,`dst_hw_addr`,`dst_type`,`label`) values ('.
 							'"'.$dtHost['port']['hw_addr'].'",'.
 							'"SWITCH",'.
 							'"'.$dtHost['mac'].'",'.
-							'"HOST")';
+							'"HOST",'.
+							'""'.
+							')';
 				$this->TdbfSystem->tdbfExecSQL($strSql5);
 				$strSql6 = 'insert into t_link (`src_hw_addr`,`src_type`,`dst_hw_addr`,`dst_type`) values ('.
 							'"'.$dtHost['mac'].'",'.
@@ -285,7 +289,7 @@ class Network extends CI_Controller {
 							$cmd3 = 'h'.$i.' ip route';
 							$x2 = $this->mininetCmd($cmd3);
 							$x3 = explode("\n", $x2['data']['output']);
-							$strSql11 = 'update t_host set `hostname`="h'.$i.'", `route`="'.$x2['data']['output'].'" where `hw_addr`="'.$hostId.'"';
+							$strSql11 = 'update t_host set `hostname`="h'.$i.'", `label`="h'.$i.'", `route`="'.$x2['data']['output'].'" where `hw_addr`="'.$hostId.'"';
 							$this->TdbfSystem->tdbfExecSQL($strSql11);	
 						}
 					}else{
@@ -314,7 +318,7 @@ class Network extends CI_Controller {
 			$strSql = 'select * from `t_switch`';
 			$dtSwitches = $this->TdbfSystem->tdbfGetnxnResult($strSql, TRUE);
 			foreach ($dtSwitches as $key1 => $dtSwitch) {
-				$newNode = array('type'=>'SWITCH'	,'dpid'=>$dtSwitch['dpid'],'port'=>array(),'ipv4'=>array(),'ipv6'=>array(),'route'=>array());
+				$newNode = array('type'=>'SWITCH','dpid'=>$dtSwitch['dpid'],'label'=>$dtSwitch['label'],'port'=>array(),'ipv4'=>array(),'ipv6'=>array(),'route'=>array());
 				$strSql = 'select * from t_switch_port where `dpid`="'.$dtSwitch['dpid'].'"';
 				$dtSwitchPorts = $this->TdbfSystem->tdbfGetnxnResult($strSql, TRUE);
 				foreach ($dtSwitchPorts as $key2 => $dtSwitchPort) {
@@ -340,7 +344,7 @@ class Network extends CI_Controller {
 			$strSql = 'select * from `t_host`';
 			$dtHosts = $this->TdbfSystem->tdbfGetnxnResult($strSql, TRUE);
 			foreach ($dtHosts as $key1 => $dtHost) {
-				$newNode = array('type'=>'HOST'	,'hw_addr'=>$dtHost['hw_addr'],'hostname'=>$dtHost['hostname'],'route'=>$dtHost['route'],'ipv4'=>array(),'ipv6'=>array());
+				$newNode = array('type'=>'HOST'	,'hw_addr'=>$dtHost['hw_addr'],'hostname'=>$dtHost['hostname'],'label'=>$dtHost['label'],'route'=>$dtHost['route'],'ipv4'=>array(),'ipv6'=>array());
 				$strSql = 'select * from t_host_ipv4 where `hw_addr`="'.$dtHost['hw_addr'].'" order by `index`';
 				$dtHostIpv4s = $this->TdbfSystem->tdbfGetnxnResult($strSql, TRUE);
 				foreach ($dtHostIpv4s as $key2 => $dtHostIpv4) {
@@ -369,6 +373,7 @@ class Network extends CI_Controller {
 					$dstNodeId = $dtLink['dst_hw_addr'];
 				}
 				$newEdge = array(	'src_node_id'=>$srcNodeId,'dst_node_id'=>$dstNodeId,
+									'label'=>$dtLink['label'],
 									'src_hw_addr'=>$dtLink['src_hw_addr'],'dst_hw_addr'=>$dtLink['dst_hw_addr'],
 									'src_node_info'=>$dtReply['data']['nodes'][$srcNodeId],'dst_node_info'=>$dtReply['data']['nodes'][$dstNodeId]
 								);
@@ -376,6 +381,31 @@ class Network extends CI_Controller {
 				//$dtReply['data']['edges'][$dtLink['src_hw_addr']] = $newEdge;
 			}
 			
+			$dtReply['status'] = 'success';
+		}else{
+			$dtReply['err_message'] = 'Your login session is expired.';
+		}
+		switch ($reqType) {
+			case 'raw':
+				print json_encode($dtReply);
+				break;
+			case 'json':
+				header('Content-Type: application/json');
+				print json_encode($dtReply);
+				break;
+		}
+    	return $dtReply;
+	}
+	
+	public function getTopologyPopupMenu($reqType = 'function'){
+		$dtReply = array('status'=>'fail');
+		if($this->TdbfSystem->isUserLoggedIn()){
+			set_time_limit(0);
+			$dtReply['data'] = array();
+			//print file_get_contents('assets/myjson/popup_menu_switch.json');
+			$dtReply['data']['switch'] = json_decode(file_get_contents('assets/myjson/popup_menu_switch.json'),TRUE);
+			$dtReply['data']['host'] = json_decode(file_get_contents('assets/myjson/popup_menu_host.json'),TRUE);
+			$dtReply['data']['edge'] = json_decode(file_get_contents('assets/myjson/popup_menu_edge.json'),TRUE);
 			$dtReply['status'] = 'success';
 		}else{
 			$dtReply['err_message'] = 'Your login session is expired.';

@@ -2,11 +2,13 @@ var mNet = null;
 var mNetData = null;
 var mNetNodes = null;
 var mNetEdges = null;
-var mTopologyData = {};
+var mTopologyData = null;
+var mPopupMenuItems = null;
+
 function myLoadGraphData(){
 	var url = APP_BASE_URL+'Network/getTopologyData/raw';
 	myAjaxRequest(url,{},{},true,'json',function(dtJson){
-		console.log(dtJson);
+		//console.log(dtJson);
 		mTopologyData = dtJson.data;
 		mNetNodes = new vis.DataSet();
 		mNetEdges = new vis.DataSet();
@@ -21,42 +23,9 @@ function myLoadGraphData(){
 			}else{
 				imgPath = APP_BASE_URL+'assets/myimages/icon/host.png';
 			}
-			var nodeLabel = '';
-			if(mTopologyData.nodes[nodeId].type == 'SWITCH'){
-				nodeLabel = nodeLabel + mTopologyData.nodes[nodeId].dpid;
-				/*
-				nodeLabel = nodeLabel + 'DPID = '+ mTopologyData.nodes[nodeId].dpid+'\n';
-				if(mTopologyData.nodes[nodeId].ipv4.length >0){
-					for(var idx2 in mTopologyData.nodes[nodeId].ipv4){
-						nodeLabel = nodeLabel + mTopologyData.nodes[nodeId].ipv4[idx2].addr+'/'+mTopologyData.nodes[nodeId].ipv4[idx2].prefix+'\n';
-					}
-				}
-				if(mTopologyData.nodes[nodeId].ipv6.length >0){
-					for(var idx2 in mTopologyData.nodes[nodeId].ipv6){
-						nodeLabel = nodeLabel + mTopologyData.nodes[nodeId].ipv6[idx2].addr+'/'+mTopologyData.nodes[nodeId].ipv6[idx2].prefix+'\n';
-					}
-				}
-				if(mTopologyData.nodes[nodeId].route.length >0){
-					for(var idx2 in mTopologyData.nodes[nodeId].route){
-						nodeLabel = nodeLabel + mTopologyData.nodes[nodeId].route[idx2].dst_net+' gw '+mTopologyData.nodes[nodeId].route[idx2].gateway+'\n';
-					}
-				}
-				*/
-			}else{
-				if(mTopologyData.nodes[nodeId].hostname != ''){
-					nodeLabel = nodeLabel + mTopologyData.nodes[nodeId].hostname;
-				}else{
-					nodeLabel = nodeLabel + mTopologyData.nodes[nodeId].hw_addr;
-				}
-				if(mTopologyData.nodes[nodeId].ipv4.length >0){
-					for(var idx2 in mTopologyData.nodes[nodeId].ipv4){
-						nodeLabel = nodeLabel + '\n'+mTopologyData.nodes[nodeId].ipv4[idx2].addr+'/'+mTopologyData.nodes[nodeId].ipv4[idx2].prefix;
-					}
-				}
-			}
 			mNetNodes.add({
 				id: nodeId, 
-				label: nodeLabel, 
+				label: mTopologyData.nodes[nodeId].label, 
 				shape: 'image',
 				image: imgPath,
 				data: mTopologyData.nodes[nodeId]
@@ -82,6 +51,7 @@ function myLoadGraphData(){
 					id:mTopologyData.edges[edgeId].src_node_id+'.'+mTopologyData.edges[edgeId].dst_node_id,
 					from: mTopologyData.edges[edgeId].src_node_id, 
 					to: mTopologyData.edges[edgeId].dst_node_id,
+					label: mTopologyData.edges[edgeId].label,
 					data: mTopologyData.edges[edgeId]
 				});
 			}
@@ -96,33 +66,111 @@ function myLoadGraphData(){
 		mNet = new vis.Network(container, mNetData, options);
 		
 		mNet.on('click', function (params) {
+			//console.log(params);
 			params.event = "[original event]";
-			//console.log('click event, getNodeAt returns: ' + this.getNodeAt(params.pointer.DOM));
-			console.log(params);
-			for(i in params.nodes){
-				console.log(mNetNodes.get(params.nodes[i]).data);
-				$('#netObjInfoBody').jsonViewer(mNetNodes.get(params.nodes[i]).data);
-				$('#netObjInfoHeader').html(mNetNodes.get(params.nodes[i]).label);
-				$('#netObjInfoBox').collapse('show');
-			}
-			for(i in params.edges){
-				console.log(mNetEdges.get(params.edges[i]).data);
-				$('#netObjInfoBody').jsonViewer(mNetEdges.get(params.edges[i]).data);
-				$('#netObjInfoHeader').html('Link');
-				$('#netObjInfoBox').collapse('show');
-			}
+			showSelectedNetObjInfo();
 		});
 		mNet.on('deselectNode', function (params) {
-			console.log('deselectNode');
+			//console.log('deselectNode');
 		});
 		mNet.on('deselectEdge', function (params) {
-			console.log('deselectEdge');
+			//console.log('deselectEdge');
 		});
+		myLoadPopupMenuItems();
 	});
 };
 
+function myLoadPopupMenuItems(){
+	var url = APP_BASE_URL+'Network/getTopologyPopupMenu/raw';
+	myAjaxRequest(url,{},{},true,'json',function(dtJson){
+		//console.log(dtJson);
+		mPopupMenuItems = dtJson.data;
+		createContextMenu();
+	});
+};
+
+function showSelectedNetObjInfo(){
+	var selectedObj = null;
+	
+	var edgeIds = mNet.getSelectedEdges();
+	for(var i in edgeIds){
+		selectedObj = mNetEdges.get(edgeIds[i]);
+		//console.log(selectedObj.data);
+		$('#netObjInfoBody').jsonViewer(selectedObj.data);
+		if(selectedObj.label == ''){
+			$('#netObjInfoHeader').html('Link');
+		}else{
+			$('#netObjInfoHeader').html(selectedObj.label);
+		}
+		$('#netObjInfoBox').collapse('show');
+	}
+	var nodeIds = mNet.getSelectedNodes();
+	for(var i in nodeIds){
+		selectedObj = mNetNodes.get(nodeIds[i]);
+		//console.log(selectedObj.data);
+		$('#netObjInfoBody').jsonViewer(selectedObj.data);
+		$('#netObjInfoHeader').html(selectedObj.label);
+		$('#netObjInfoBox').collapse('show');
+	}
+	if(selectedObj !== null){
+		return selectedObj.data;
+	}else{
+		return null;
+	}
+}
+
+function createContextMenu(){
+	
+	$.contextMenu({
+		selector: '#myTopology',
+		build: function ($trigger, e){
+			//console.log(e);
+			var popupMenu = null;
+			var contextMenuAt = {'x':e.offsetX, 'y':e.offsetY};
+			
+			x1 = mNet.getEdgeAt(contextMenuAt);
+			if(x1 !== undefined){
+				mNet.selectEdges([x1]);
+				var objNetData = showSelectedNetObjInfo();
+				popupMenu = mPopupMenuItems.edge;
+			}
+			
+			x1 = mNet.getNodeAt(contextMenuAt);
+			if(x1 !== undefined){
+				mNet.selectNodes([x1],false);
+				var objNetData = showSelectedNetObjInfo();
+				switch(objNetData.type){
+					case 'SWITCH':
+						popupMenu = mPopupMenuItems['switch'];
+						break;
+					case 'HOST':
+						popupMenu = mPopupMenuItems['host'];
+						break;
+					default:
+						popupMenu = mPopupMenuItems['edge'];
+						break;
+				}
+			}
+			var option = {
+				callback: function(itemKey, opt) {
+					console.log(objNetData);
+				},
+				items:  popupMenu
+			}
+			if(popupMenu === null){
+				return false;
+			}else{
+				return option;
+			}
+		}
+	});
+}
+
 $( document ).ready(function() {
+	document.addEventListener("contextmenu", function (e) {
+        e.preventDefault();
+    }, false);
+	$("#netObjInfoBody").css({"height":$("#myTopology").height()-40});
 	myLoadGraphData();
-$("#netObjInfoBody").css({"height":$("#myTopology").height()-40});
 });
 

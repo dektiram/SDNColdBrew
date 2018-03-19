@@ -1,8 +1,15 @@
 <script type="text/javascript" src="<?php print base_url().'assets/'; ?>plugins/vis/dist/vis.js"></script>
+<script type="text/javascript" src="<?php print base_url().'assets/'; ?>plugins/json-viewer/jquery.json-viewer.js"></script>
+<script type="text/javascript" src="<?php print base_url().'assets/'; ?>plugins/jQuery-contextMenu/dist/jquery.contextMenu.js"></script>
+<script type="text/javascript" src="<?php print base_url().'assets/'; ?>plugins/jQuery-contextMenu/dist/jquery.ui.position.min.js"></script>
+<script type="text/javascript" src="<?php print base_url().'assets/'; ?>plugins/jQuery-contextMenu/js/main.js"></script> 
 <link href="<?php print base_url().'assets/'; ?>plugins/vis/dist/vis.css" rel="stylesheet" type="text/css"/>
 <link href="<?php print base_url().'assets/'; ?>plugins/vis/dist/vis-network.min.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="<?php print base_url().'assets/'; ?>plugins/json-viewer/jquery.json-viewer.js"></script>
 <link href="<?php print base_url().'assets/'; ?>plugins/json-viewer/jquery.json-viewer.css" rel="stylesheet" type="text/css"/>
+<link href="<?php print base_url().'assets/'; ?>plugins/jQuery-contextMenu/css/screen.css" rel="stylesheet" type="text/css"/>
+<link href="<?php print base_url().'assets/'; ?>plugins/jQuery-contextMenu/css/theme.css" rel="stylesheet" type="text/css"/>
+<link href="<?php print base_url().'assets/'; ?>plugins/jQuery-contextMenu/css/theme-fixes.css" rel="stylesheet" type="text/css"/>
+<link href="<?php print base_url().'assets/'; ?>plugins/jQuery-contextMenu/dist/jquery.contextMenu.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="<?php print base_url().'assets/'; ?>myjs/tdbfFunctionCollection.js"></script>
 <script type="text/javascript" src="<?php print base_url().'assets/'; ?>myjs/topology.js"></script>
         <section class="content">

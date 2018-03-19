@@ -1,0 +1,67 @@
+/* Probably shouldn't have this here tbh */
+body {
+	margin: 0;
+	padding: 0;
+}
+
+.sm-toolbar {
+	display: block;
+	height: 56px;
+	width: 100%;
+	padding: 0 8px;
+	box-sizing: border-box;
+}
+
+.sm-toolbar span {
+	display: inline-block;
+	height: inherit;
+	line-height: 56px;
+	padding: 0 8px;
+}
+
+.sm-toolbar .sm-icon {
+	color: inherit;
+}
+
+/* Helper classes */
+.sm-left {
+	float: left;
+}
+
+.sm-right {
+	float: right;
+}
+
+/* Fonts */
+/* Probably shouldn't have this here either */
+.sm-text {
+    font-family: 'Roboto', sans-serif;
+	font-size: 13px;
+}
+.sm-font-title {
+	font-weight: 500;
+	font-size: 20px;
+}
+
+/* Colours */
+/* Probably shouldn't have this here either */
+.sm-primary-500 {
+	background-color: #2196F3; 
+	color: white;
+}
+
+/* Icons */
+.sm-icon {
+	display: inline-block;
+	padding: 8px;
+
+	text-align: center;
+	vertical-align: middle;
+
+    cursor: pointer;
+}
+
+.material-icons.md-18 { font-size: 18px; width: 18px; }
+.material-icons.md-24 { font-size: 24px; width: 24px; }
+.material-icons.md-36 { font-size: 36px; width: 36px; }
+.material-icons.md-48 { font-size: 48px; width: 48px; }
