@@ -7,11 +7,9 @@
 				"items": {
 					"ofctl_get_desc_stats" : {"name": "Desc stats", "icon": ""},
 					"ofctl_get_all_flows_stats" : {"name": "All flows stats", "icon": ""},
-					"ofctl_get_flows_stats_filtered_by_field" : {"name": "Flows stats filtered by fields", "icon": ""},
 					"ofctl_get_aggregate_flow_stats" : {"name": "Aggregate flow stats", "icon": ""},
-					"ofctl_get_aggregate_flow_stats_filtered_by_fields" : {"name": "Aggregate flow stats filtered by fields", "icon": ""},
 					"ofctl_get_table_stats" : {"name": "Table stats", "icon": ""},
-				"ofctl_get_table_features" : {"name": "Table features", "icon": ""},
+					"ofctl_get_table_features" : {"name": "Table features", "icon": ""},
 					"ofctl_get_ports_stats" : {"name": "Ports stats", "icon": ""},
 					"ofctl_get_ports_description" : {"name": "Ports description", "icon": ""},
 					"ofctl_get_queues_stats" : {"name": "Queues stats", "icon": ""},
@@ -29,20 +27,20 @@
 			},
 			"ofctl_set" : {"name": "Update the switch stats", "icon": "",
 				"items": {
-					"ofctl_setadd_a_flow_entry" : {"name": "Add a flow entry", "icon": ""},
-					"ofctl_setmodify_all_matching_flow_entries" : {"name": "Modify all matching flow entries", "icon": ""},
-					"ofctl_setmodify_flow_entry_strictly" : {"name": "Modify flow entry strictly", "icon": ""},
-					"ofctl_setdelete_all_matching_flow_entries" : {"name": "Delete all matching flow entries", "icon": ""},
-					"ofctl_setdelete_flow_entry_strictly" : {"name": "Delete flow entry strictly", "icon": ""},
-					"ofctl_setdelete_all_flow_entries" : {"name": "Delete all flow entries", "icon": ""},
-				"ofctl_setadd_a_group_entry" : {"name": "Add a group entry", "icon": ""},
-					"ofctl_setmodify_a_group_entry" : {"name": "Modify a group entry", "icon": ""},
-					"ofctl_setdelete_a_group_entry" : {"name": "Delete a group entry", "icon": ""},
-					"ofctl_setmodify_the_behavior_of_the_port" : {"name": "Modify the behavior of the port", "icon": ""},
-					"ofctl_setadd_a_meter_entry" : {"name": "Add a meter entry", "icon": ""},
-					"ofctl_setmodify_a_meter_entry" : {"name": "Modify a meter entry", "icon": ""},
-					"ofctl_setdelete_a_meter_entry" : {"name": "Delete a meter entry", "icon": ""},
-					"ofctl_setmodify_role" : {"name": "Modify role", "icon": ""}
+					"ofctl_set_add_a_flow_entry" : {"name": "Add a flow entry", "icon": ""},
+					"ofctl_set_modify_all_matching_flow_entries" : {"name": "Modify all matching flow entries", "icon": ""},
+					"ofctl_set_modify_flow_entry_strictly" : {"name": "Modify flow entry strictly", "icon": ""},
+					"ofctl_set_delete_all_matching_flow_entries" : {"name": "Delete all matching flow entries", "icon": ""},
+					"ofctl_set_delete_flow_entry_strictly" : {"name": "Delete flow entry strictly", "icon": ""},
+					"ofctl_set_delete_all_flow_entries" : {"name": "Delete all flow entries", "icon": ""},
+					"ofctl_set_add_a_group_entry" : {"name": "Add a group entry", "icon": ""},
+					"ofctl_set_modify_a_group_entry" : {"name": "Modify a group entry", "icon": ""},
+					"ofctl_set_delete_a_group_entry" : {"name": "Delete a group entry", "icon": ""},
+					"ofctl_set_modify_the_behavior_of_the_port" : {"name": "Modify the behavior of the port", "icon": ""},
+					"ofctl_set_add_a_meter_entry" : {"name": "Add a meter entry", "icon": ""},
+					"ofctl_set_modify_a_meter_entry" : {"name": "Modify a meter entry", "icon": ""},
+					"ofctl_set_delete_a_meter_entry" : {"name": "Delete a meter entry", "icon": ""},
+					"ofctl_set_modify_role" : {"name": "Modify role", "icon": ""}
 				}
 			}
 		}

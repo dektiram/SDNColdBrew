@@ -34,9 +34,7 @@
 				              <!-- /.box-tools -->
 				            </div>
 				            <!-- /.box-header -->
-				            <div id="netObjInfoBody" class="box-body">
-				              The body of the box
-				            </div>
+				            <div id="netObjInfoBody" class="box-body"></div>
 				            <!-- /.box-body -->
 				          </div>
 	                	</div>
@@ -47,3 +45,59 @@
             </div><!-- /.col -->
           </div><!-- /.row -->
         </section><!-- /.content -->
+        
+<div class="modal fade bs-example-modal-lg" id="modal-data-net">
+	<div class="modal-dialog modal-lg modal-data-net-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				<h4 class="modal-title">Default Modal</h4>
+			</div>
+			<div class="modal-body">
+				<div class="loadingImage" align="center">
+					<img src="<?php print base_url().'assets/'; ?>myimages/animatedEllipse.gif" />
+				</div>
+				<ul class="nav nav-tabs">
+					<li class="active"><a data-toggle="tab" href="#modal-data-net-raw">Raw</a></li>
+					<li><a data-toggle="tab" href="#modal-data-net-json">JSON</a></li>
+					<li><a data-toggle="tab" href="#modal-data-net-tabular">Tabular</a></li>
+				</ul>
+				<div class="tab-content">
+					<div id="modal-data-net-raw" class="tab-pane fade in active"><div>Raw content.</div></div>
+					<div id="modal-data-net-json" class="tab-pane fade"><div>JSON content.</div></div>
+					<div id="modal-data-net-tabular" class="tab-pane fade"><div>Tabular content.</div></div>
+				</div>
+			</div>
+			<!--
+			<div class="modal-footer">
+				<button type="button" class="btn btn-xs btn-default pull-left" data-dismiss="modal">Close</button>
+				<button type="button" class="btn btn-xs btn-primary">Save changes</button>
+			</div>
+			-->
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div><!-- /.modal -->      
+  
+<div class="modal fade bs-example-modal-md" id="modal-ofctl-rest-api-form">
+	<div class="modal-dialog modal-lg modal-ofctl-rest-api-form-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				<h4 class="modal-title">Default Modal</h4>
+			</div>
+			<div class="modal-body">
+				<div class="modal-ofctl-rest-api-form-iframe-container">
+					<iframe id="iframeOfctlRestApiForm" class="modal-ofctl-rest-api-form-iframe"></iframe>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-xs btn-default pull-left" data-dismiss="modal">Close</button>
+				<button type="button" class="btn btn-xs btn-primary">Submit</button>
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

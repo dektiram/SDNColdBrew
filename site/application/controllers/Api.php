@@ -6,12 +6,13 @@ class Api extends CI_Controller {
 	public function __construct(){
 		parent::__construct(); 
     }
-	public function ryu(){
+	public function ryu($format = 'text'){
 		$this->TdbfSystem->ifNotLoginRedirectToLoginPage();
 		$x1 = explode('/', uri_string());
 		//print uri_string();
 		unset($x1[0]);
 		unset($x1[1]);
+		unset($x1[2]);
 		$ryuApiParam = implode('/', $x1);
 		$ryuApiUrl = 'http://127.0.0.1:8080/'.$ryuApiParam;
 		
@@ -21,7 +22,9 @@ class Api extends CI_Controller {
 	    curl_setopt_array($ch, $options);
 	    $content  = curl_exec($ch);
 	    curl_close($ch);
-		header('Content-Type: application/json');
+		if($format == 'json'){
+			header('Content-Type: application/json');
+		}
     	print $content;
 	}
 	public function sflowrt(){

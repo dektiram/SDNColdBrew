@@ -178,3 +178,26 @@ div.ui-datepicker{
 	margin: 0px;
 	border: none
 }
+
+.modal-lg.modal-data-net-dialog{
+	width: 90%
+}
+
+.modal-lg.modal-data-net-dialog .modal-body #modal-data-net-tabular .col-sm-12{
+	overflow-x:scroll
+}
+
+.modal-md.modal-ofctl-rest-api-form-dialog{
+	
+}
+
+.modal-ofctl-rest-api-form-iframe-container{
+	height: 400px;
+	overflow-y: hidden
+}
+
+.modal-ofctl-rest-api-form-iframe{
+	border: none;
+	height: 100%;
+	width: 100%
+}

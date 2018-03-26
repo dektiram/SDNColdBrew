@@ -50,14 +50,6 @@
         "linkUrl":"#",
         "sub":[
         	{
-                "id":"discovery",
-                "label":"Discovery",
-                "icon":"fa fa-cc-discover",
-                "hintText":"Discovery",
-                "linkType":"internal",
-                "linkUrl":"Network/discovery"
-            },
-        	{
                 "id":"viewTopology",
                 "label":"Topology",
                 "icon":"fa fa-sitemap",
@@ -74,14 +66,6 @@
                 "linkUrl":"Network/viewSwitchList"
             },
         	{
-                "id":"viewSwitchPortList",
-                "label":"Switch - Port",
-                "icon":"fa fa-exchange",
-                "hintText":"Switch - Port",
-                "linkType":"internal",
-                "linkUrl":"Network/viewSwitchPortList"
-            },
-        	{
                 "id":"viewHostList",
                 "label":"Host",
                 "icon":"fa fa-desktop",
@@ -96,6 +80,14 @@
                 "hintText":"Link",
                 "linkType":"internal",
                 "linkUrl":"Network/viewLinkList"
+            },
+        	{
+                "id":"mininetPingAll",
+                "label":"Mininet pingall",
+                "icon":"fa fa-cc-discover",
+                "hintText":"Mininet pingall",
+                "linkType":"internal",
+                "linkUrl":"Network/mininetPingAll"
             }
         ]
     },
