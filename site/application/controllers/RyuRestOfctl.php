@@ -10,7 +10,18 @@ class RyuRestOfctl extends CI_Controller {
 		$this->load->view('myView/test');
 	}
 	public function test2(){
-		$this->load->view('myView/test2');
+		$this->TdbfSystem->ifNotLoginRedirectToLoginPage();
+		$pageAlert = array('success'=>array(),'info'=>array(),'warning'=>array(),'danger'=>array());
+		
+		$pPageParam=array();
+		$pPageParam['otherParam']=array();
+		$pPageParam['otherParam']['alertMessage'] = $pageAlert;
+		$pPageParam['USERINFO']=$this->TdbfSystem->USERINFO;
+		$pHTMLMyContent='';
+		$pMainPageLoadMode='full';
+		$s1=$this->load->view('myView/test2',$pPageParam,true);
+		$pHTMLMyContent.=$s1;
+		$this->TdbfSystem->displayToBrowser($pHTMLMyContent,$pMainPageLoadMode,$pPageParam);	
 	}
 	public function index($itemKey, $dpid, $withFormButton = true){
 		switch ($itemKey) {
@@ -46,6 +57,10 @@ class RyuRestOfctl extends CI_Controller {
 		}
 	}
 	
+	public function geChildMenu(){
+		
+	}
+	
 	private function addFlowEntry($dpid, $withFormButton){
 		$this->TdbfSystem->ifNotLoginRedirectToLoginPage();
 		$pageAlert = array('success'=>array(),'info'=>array(),'warning'=>array(),'danger'=>array());
@@ -55,6 +70,7 @@ class RyuRestOfctl extends CI_Controller {
 		$pPageParam['otherParam']['alertMessage'] = $pageAlert;
 		$pPageParam['otherParam']['dpid'] = $dpid;
 		$pPageParam['otherParam']['withFormButton'] = $withFormButton;
+		$pPageParam['otherParam']['formUrl'] = base_url().'Api/ryu/text/stats/flowentry/add';
 		
 		$formSchema = json_decode(file_get_contents('assets/myjson/ofctlRestApi/addFlowEntry.json'),TRUE);
 		$pPageParam['otherParam']['formSchema'] = json_encode($formSchema);

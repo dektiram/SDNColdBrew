@@ -96,7 +96,9 @@
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-xs btn-default pull-left" data-dismiss="modal">Close</button>
-				<button type="button" class="btn btn-xs btn-primary">Submit</button>
+				<button type="button" class="btn btn-xs btn-primary" onclick="document.getElementById('iframeOfctlRestApiForm').contentWindow.formSubmit();">Submit</button>
+				<button type="button" class="btn btn-xs btn-primary" onclick="document.getElementById('iframeOfctlRestApiForm').contentWindow.formValidate();">Validate</button>
+				<button type="button" class="btn btn-xs btn-primary" onclick="document.getElementById('iframeOfctlRestApiForm').contentWindow.formGetData();">Get Data</button>
 			</div>
 		</div><!-- /.modal-content -->
 	</div><!-- /.modal-dialog -->

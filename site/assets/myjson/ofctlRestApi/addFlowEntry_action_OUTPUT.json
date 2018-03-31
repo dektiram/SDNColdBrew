@@ -1,0 +1,12 @@
+{
+	"type":"object",
+	"properties":{
+		"port":{
+			"type":"integer",
+			"title":"port",
+			"description":"Port",
+			"readOnly":true,
+			"required":true
+		}
+	}
+}

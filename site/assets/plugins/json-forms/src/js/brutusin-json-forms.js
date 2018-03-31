@@ -1324,11 +1324,12 @@ if (typeof brutusin === "undefined") {
         }
 
         function onDependencyChanged(name, source) {
-
+			
             var arr = dependencyMap[name];
             if (!arr || !obj.schemaResolver) {
                 return;
             }
+            console.log(schemaMap);
             var cb = function (schemas) {
                 if (schemas) {
                     for (var id in schemas) {

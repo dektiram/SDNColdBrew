@@ -243,66 +243,66 @@ function displayModalDataNet(itemKey, title, objNetData){
 	var postParam = {};
 	switch(itemKey){
 		case 'ofctl_get_desc_stats':
-			url = APP_BASE_URL+'Api/ryu/text/stats/desc/'+objNetData.dpid;
+			url = APP_BASE_URL+'Api/ryu/text/GET/stats/desc/'+objNetData.dpid;
 			break;
 		case 'ofctl_get_all_flows_stats':
-			url = APP_BASE_URL+'Api/ryu/text/stats/flow/'+objNetData.dpid;
+			url = APP_BASE_URL+'Api/ryu/text/GET/stats/flow/'+objNetData.dpid;
 			break;
 		case 'ofctl_get_flows_stats_filtered_by_field':
 			alert('POST PARAM DIALOG');
-			url = APP_BASE_URL+'Api/ryu/text/stats/flow/'+objNetData.dpid;
+			url = APP_BASE_URL+'Api/ryu/text/GET/stats/flow/'+objNetData.dpid;
 			break;
 		case 'ofctl_get_aggregate_flow_stats':
-			url = APP_BASE_URL+'Api/ryu/text/stats/aggregateflow/'+objNetData.dpid;
+			url = APP_BASE_URL+'Api/ryu/text/GET/stats/aggregateflow/'+objNetData.dpid;
 			break;
 		case 'ofctl_get_aggregate_flow_stats_filtered_by_fields':
 			alert('POST PARAM DIALOG');
-			url = APP_BASE_URL+'Api/ryu/text/stats/aggregateflow/'+objNetData.dpid;
+			url = APP_BASE_URL+'Api/ryu/text/GET/stats/aggregateflow/'+objNetData.dpid;
 			break;
 		case 'ofctl_get_table_stats':
-			url = APP_BASE_URL+'Api/ryu/text/stats/table/'+objNetData.dpid;
+			url = APP_BASE_URL+'Api/ryu/text/GET/stats/table/'+objNetData.dpid;
 			break;
 		case 'ofctl_get_table_features':
-			url = APP_BASE_URL+'Api/ryu/text/stats/tablefeatures/'+objNetData.dpid;
+			url = APP_BASE_URL+'Api/ryu/text/GET/stats/tablefeatures/'+objNetData.dpid;
 			break;
 		case 'ofctl_get_ports_stats':
-			url = APP_BASE_URL+'Api/ryu/text/stats/port/'+objNetData.dpid;
+			url = APP_BASE_URL+'Api/ryu/text/GET/stats/port/'+objNetData.dpid;
 			break;
 		case 'ofctl_get_ports_description':
-			url = APP_BASE_URL+'Api/ryu/text/stats/portdesc/'+objNetData.dpid;
+			url = APP_BASE_URL+'Api/ryu/text/GET/stats/portdesc/'+objNetData.dpid;
 			break;
 		case 'ofctl_get_queues_stats':
-			url = APP_BASE_URL+'Api/ryu/text/stats/queue/'+objNetData.dpid;
+			url = APP_BASE_URL+'Api/ryu/text/GET/stats/queue/'+objNetData.dpid;
 			break;
 		case 'ofctl_get_queues_config':
-			url = APP_BASE_URL+'Api/ryu/text/stats/queueconfig/'+objNetData.dpid;
+			url = APP_BASE_URL+'Api/ryu/text/GET/stats/queueconfig/'+objNetData.dpid;
 			break;
 		case 'ofctl_get_queues_description':
-			url = APP_BASE_URL+'Api/ryu/text/stats/queuedesc/'+objNetData.dpid;
+			url = APP_BASE_URL+'Api/ryu/text/GET/stats/queuedesc/'+objNetData.dpid;
 			break;
 		case 'ofctl_get_groups_stats':
-			url = APP_BASE_URL+'Api/ryu/text/stats/group/'+objNetData.dpid;
+			url = APP_BASE_URL+'Api/ryu/text/GET/stats/group/'+objNetData.dpid;
 			break;
 		case 'ofctl_get_group_description_stats':
-			url = APP_BASE_URL+'Api/ryu/text/stats/groupdesc/'+objNetData.dpid;
+			url = APP_BASE_URL+'Api/ryu/text/GET/stats/groupdesc/'+objNetData.dpid;
 			break;
 		case 'ofctl_get_group_features_stats':
-			url = APP_BASE_URL+'Api/ryu/text/stats/groupfeatures/'+objNetData.dpid;
+			url = APP_BASE_URL+'Api/ryu/text/GET/stats/groupfeatures/'+objNetData.dpid;
 			break;
 		case 'ofctl_get_meters_stats':
-			url = APP_BASE_URL+'Api/ryu/text/stats/meter/'+objNetData.dpid;
+			url = APP_BASE_URL+'Api/ryu/text/GET/stats/meter/'+objNetData.dpid;
 			break;
 		case 'ofctl_get_meter_config_stats':
-			url = APP_BASE_URL+'Api/ryu/text/stats/meterconfig/'+objNetData.dpid;
+			url = APP_BASE_URL+'Api/ryu/text/GET/stats/meterconfig/'+objNetData.dpid;
 			break;
 		case 'ofctl_get_meter_description_stats':
-			url = APP_BASE_URL+'Api/ryu/text/stats/meterconfig/'+objNetData.dpid;
+			url = APP_BASE_URL+'Api/ryu/text/GET/stats/meterconfig/'+objNetData.dpid;
 			break;
 		case 'ofctl_get_meter_features_stats':
-			url = APP_BASE_URL+'Api/ryu/text/stats/meterfeatures/'+objNetData.dpid;
+			url = APP_BASE_URL+'Api/ryu/text/GET/stats/meterfeatures/'+objNetData.dpid;
 			break;
 		case 'ofctl_get_role':
-			url = APP_BASE_URL+'Api/ryu/text/stats/role/'+objNetData.dpid;
+			url = APP_BASE_URL+'Api/ryu/text/GET/stats/role/'+objNetData.dpid;
 			break;
 	}
 	//console.log(url);
@@ -457,7 +457,7 @@ function generateTableView(itemKey, dtJson, colStartTreeLevel, colDeepth, divCon
 }
 
 function showFormRyuRestOfctl(itemKey, dpid){
-	url = APP_BASE_URL+'RyuRestOfctl/index/'+itemKey+'/'+dpid;
+	url = APP_BASE_URL+'RyuRestOfctl/index/'+itemKey+'/'+dpid+'/0';
 	console.log(url);
 	$('#modal-ofctl-rest-api-form').modal('show');
 	$("#iframeOfctlRestApiForm").attr('src', url);

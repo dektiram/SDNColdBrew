@@ -81,11 +81,11 @@ function myAjaxRequest(pUrl,pJSONParam,pFileParam,pAsync,pReplyType,pCallBackFun
 				}
 				pCallBackFunction(pCallBackParam);
 			}
-		}//,
-		//error: function (xhr, ajaxOptions, thrownError) {
-		//	alert(xhr.status);
-		//	alert(thrownError);
-		//}
+		},
+		error: function (xhr, ajaxOptions, thrownError) {
+			alert(xhr.status);
+			alert(thrownError);
+		}
 	});
 	switch(pReplyType){
 		case 'text':
