@@ -11,18 +11,23 @@
     -webkit-transform: rotate(-90deg);
     -webkit-transform-origin:right, top;
 }
-.tableheader-xs {
+
+.tableScrollX .col-sm-12{
+	overflow-x:scroll
+}
+
+.tblDataRecord  > thead {
   font-size: 12px;
   font-weight:bold;
 }
-.tablebody-xs {
+.tblDataRecord > tbody {
   font-size: 12px;
 }
 .tabledatarow {
   vertical-align:top;
     padding:0px;
 }
-.table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td{
+.tblDataRecord  > thead > tr > th, .tblDataRecord > tbody > tr > th, .tblDataRecord > tfoot > tr > th, .tblDataRecord > thead > tr > td, .tblDataRecord > tbody > tr > td, .tblDataRecord > tfoot > tr > td{
     padding:0px;
 }
 .tabledatacell {

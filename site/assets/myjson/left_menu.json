@@ -34,69 +34,63 @@
         ]
     },
     {
-        "id":"environment",
-        "label":"Environment",
-        "icon":"fa fa-cubes",
-        "hintText":"Environment",
+        "id":"controller",
+        "label":"Controller",
+        "icon":"fa fa-coffee",
+        "hintText":"Controller",
         "linkType":"internal",
-        "linkUrl":"Environment"
+        "linkUrl":"Controller"
     },
     {
-        "id":"network",
-        "label":"Network",
+        "id":"topology",
+        "label":"Topology",
         "icon":"fa fa-sitemap",
-        "hintText":"Network",
+        "hintText":"Topology",
+        "linkType":"internal",
+        "linkUrl":"Topology"
+    },
+    {
+        "id":"restApi",
+        "label":"Rest API",
+        "icon":"fa fa-cubes",
+        "hintText":"Rest API",
         "linkType":"internal",
         "linkUrl":"#",
         "sub":[
         	{
-                "id":"viewTopology",
+                "id":"restApiOfctl",
+                "label":"OFCTL",
+                "icon":"fa fa-exchange",
+                "hintText":"OFCTL",
+                "linkType":"internal",
+                "linkUrl":"RestApi/ofctl"
+            },
+        	{
+                "id":"restApiTopology",
                 "label":"Topology",
                 "icon":"fa fa-sitemap",
                 "hintText":"Topology",
                 "linkType":"internal",
-                "linkUrl":"Network/viewTopology"
-            },
-        	{
-                "id":"viewSwitchList",
-                "label":"Switch",
-                "icon":"fa fa-exchange",
-                "hintText":"Switch",
-                "linkType":"internal",
-                "linkUrl":"Network/viewSwitchList"
-            },
-        	{
-                "id":"viewHostList",
-                "label":"Host",
-                "icon":"fa fa-desktop",
-                "hintText":"Host",
-                "linkType":"internal",
-                "linkUrl":"Network/viewHostList"
-            },
-        	{
-                "id":"viewLinkList",
-                "label":"Link",
-                "icon":"fa fa-arrows",
-                "hintText":"Link",
-                "linkType":"internal",
-                "linkUrl":"Network/viewLinkList"
-            },
-        	{
-                "id":"mininetPingAll",
-                "label":"Mininet pingall",
-                "icon":"fa fa-cc-discover",
-                "hintText":"Mininet pingall",
-                "linkType":"internal",
-                "linkUrl":"Network/mininetPingAll"
+                "linkUrl":"RestApi/topology"
             }
         ]
     },
     {
-        "id":"settings",
-        "label":"Settings",
-        "icon":"fa fa-gears",
-        "hintText":"Settings",
+        "id":"tools",
+        "label":"Tools",
+        "icon":"fa fa-wrench",
+        "hintText":"Tools",
         "linkType":"internal",
-        "linkUrl":"settings/settings"
+        "linkUrl":"#",
+        "sub":[
+        	{
+                "id":"mininetPingAll",
+                "label":"Mininet pingall",
+                "icon":"fa fa-bars",
+                "hintText":"Mininet pingall",
+                "linkType":"internal",
+                "linkUrl":"Tools/mininetPingAll"
+            }
+        ]
     }
 ]

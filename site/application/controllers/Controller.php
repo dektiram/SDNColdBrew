@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Environment extends CI_Controller {
+class Controller extends CI_Controller {
 	//var $pageParam=array();
 	public function __construct(){
 		parent::__construct(); 
@@ -113,7 +113,7 @@ class Environment extends CI_Controller {
 		$pPageParam['USERINFO']=$this->TdbfSystem->USERINFO;
 		$pHTMLMyContent='';
 		$pMainPageLoadMode='full';
-		$s1=$this->load->view('myView/Environment',$pPageParam,true);
+		$s1=$this->load->view('myView/Controller',$pPageParam,true);
 		$pHTMLMyContent.=$s1;
 		$this->TdbfSystem->displayToBrowser($pHTMLMyContent,$pMainPageLoadMode,$pPageParam);	
 	}

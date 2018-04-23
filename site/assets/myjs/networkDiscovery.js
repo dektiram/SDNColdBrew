@@ -1,7 +1,8 @@
 function myPingTrigger(){
-	var url = APP_CONTROLLER_URL+'pingTrigger';
+	var mode = $('input[name=rdHostname]:checked').val();
+	var url = APP_CONTROLLER_URL+'pingTrigger/'+mode;
 	mySetThisWindowEnable(false,'Please wait a minutes...');
-	myAjaxRequest(url,{},{},true,'json',function(pCallBackParam){
+	myAjaxRequest(url,{'hostnames':$('#hostnameList').val()},{},true,'json',function(pCallBackParam){
 		console.log(pCallBackParam);
 		mySetThisWindowEnable(true);
 		if(pCallBackParam.status == 'success'){
@@ -13,44 +14,8 @@ function myPingTrigger(){
 	});
 }
 
-function myClearNetworkData(){
-	var url = APP_CONTROLLER_URL+'clearNetworkData';
-	mySetThisWindowEnable(false,'Please wait a minutes...');
-	myAjaxRequest(url,{},{},true,'json',function(pCallBackParam){
-		console.log(pCallBackParam);
-		mySetThisWindowEnable(true);
-		if(pCallBackParam.status == 'success'){
-			myPageAlert('success','Clear network data finish.',true,3000);
-		}else{
-			myPageAlert('warning','Clear network data fail.',true,3000);
-			console.log(pCallBackParam.err_message);
-		}
-	});
-}
-
-function mySaveNetworkData(){
-	var url = APP_CONTROLLER_URL+'saveNetworkData';
-	mySetThisWindowEnable(false,'Please wait a minutes...');
-	myAjaxRequest(url,{},{},true,'json',function(pCallBackParam){
-		console.log(pCallBackParam);
-		mySetThisWindowEnable(true);
-		if(pCallBackParam.status == 'success'){
-			myPageAlert('success','Save network data finish.',true,3000);
-		}else{
-			myPageAlert('warning','Save network data fail.',true,3000);
-			console.log(pCallBackParam.err_message);
-		}
-	});
-}
-
 $( document ).ready(function() {
 	$('#btnPingTrigger' ).click(function() {
 		myPingTrigger();
-	});
-	$('#btnClearNetworkData' ).click(function() {
-		myClearNetworkData();
-	});
-	$('#btnSaveNetworkData' ).click(function() {
-		mySaveNetworkData();
 	});
 });

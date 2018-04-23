@@ -30,7 +30,7 @@ function initDraw(){
 }
 
 function refreshTopology(){
-	var url = APP_BASE_URL+'Network/getTopologyData/raw';
+	var url = APP_CONTROLLER_URL+'getTopologyData/raw';
 	myAjaxRequest(url,{},{},true,'json',function(dtJson){
 		//console.log(dtJson);
 		var dataTopo = dtJson.data;
@@ -61,6 +61,7 @@ function refreshTopology(){
 					label: node.label, 
 					shape: 'image',
 					image: imgPath,
+					size:10,
 					data: node
 				});
 			}else{
@@ -131,7 +132,7 @@ function refreshTopology(){
 
 
 function loadPopupMenuItems(){
-	var url = APP_BASE_URL+'Network/getTopologyPopupMenu/raw';
+	var url = APP_CONTROLLER_URL+'getTopologyPopupMenu/raw';
 	myAjaxRequest(url,{},{},true,'json',function(dtJson){
 		//console.log(dtJson);
 		mPopupMenuItems = dtJson.data;

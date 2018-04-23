@@ -9,19 +9,32 @@ class Api extends CI_Controller {
 	function myCurlRyuRest($url, $postData, $formatReply = 'text', $requestMethod = 'GET', $timeout = 60 ){
 		$ch = curl_init();
 		curl_setopt($ch,CURLOPT_URL, $url);
+		//curl_setopt($ch, CURLOPT_HEADER, true); 
 		curl_setopt($ch,CURLOPT_RETURNTRANSFER, TRUE);
 		curl_setopt($ch,CURLOPT_TIMEOUT, $timeout);
-		if($postData != ''){
-			//print $postData;
-			curl_setopt($ch,CURLOPT_POST, TRUE);
-			curl_setopt($ch,CURLOPT_POSTFIELDS, $postData);
+		if($requestMethod == 'POST'){
+			if($postData != ''){
+				//print '<pre>'.$postData.'</pre>';
+				curl_setopt($ch,CURLOPT_POST, TRUE);
+				curl_setopt($ch,CURLOPT_POSTFIELDS, $postData);
+			}
+		}elseif($requestMethod == 'DELETE'){
+			curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'DELETE');
 		}
 	    $content  = curl_exec($ch);
+		$httpcode = curl_getinfo($ch)['http_code'];
+		//print $httpcode;
 	    curl_close($ch);
 		if($formatReply == 'json'){
-			return json_decode($content, TRUE);
+			return array(
+				'http_code' => $httpcode,
+				'http_content' => json_decode($content, TRUE)
+			);
 		}else{
-			return $content;
+			return array(
+				'http_code' => $httpcode,
+				'http_content' => $content
+			);
 		}
 	}
 	public function ryu($format = 'text', $requestMethod = 'GET'){
@@ -39,15 +52,16 @@ class Api extends CI_Controller {
 			$x1 = $this->TdbfSystem->hexStr2Json($_POST['tdbfPageParam']);
 			if(isset($x1['ofctlRestApi'])){
 				$postParam = $x1['ofctlRestApi'];
-				$strPostData = json_encode($postParam);
+				$strPostData = $postParam;
 			}
 		}
 		$content  = $this->myCurlRyuRest($ryuApiUrl, $strPostData, 'text', $requestMethod);
 		
+		http_response_code($content['http_code']);
 		if($format == 'json'){
 			header('Content-Type: application/json');
 		}
-    	print $content;
+    	print $content['http_content'];
 	}
 	public function sflowrt(){
 		$this->TdbfSystem->ifNotLoginRedirectToLoginPage();

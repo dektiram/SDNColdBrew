@@ -46,7 +46,7 @@ function myHexStr2Json(pHexStr){
 	pDtJSON=JSON.parse(s1);
 	return pDtJSON;
 };
-function myAjaxRequest(pUrl,pJSONParam,pFileParam,pAsync,pReplyType,pCallBackFunction){
+function myAjaxRequest(pUrl,pJSONParam,pFileParam,pAsync,pReplyType,pCallBackFunction,pCallBackErrorFUnction){
 	//alert('myAjaxPost');
 	var pStrReply='';
 	var pDataPost=new FormData();
@@ -83,8 +83,11 @@ function myAjaxRequest(pUrl,pJSONParam,pFileParam,pAsync,pReplyType,pCallBackFun
 			}
 		},
 		error: function (xhr, ajaxOptions, thrownError) {
-			alert(xhr.status);
-			alert(thrownError);
+			//alert(xhr.status);
+			//alert(thrownError);
+			if(pCallBackErrorFUnction!=undefined){
+				pCallBackErrorFUnction(xhr, ajaxOptions, thrownError);
+			}
 		}
 	});
 	switch(pReplyType){

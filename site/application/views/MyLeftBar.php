@@ -5,7 +5,7 @@
           <ul id="ulRootMenu" class="sidebar-menu">
             <!--li class="header">MAIN NAVIGATION</li-->
             <?php
-            $jsonMenu = file_get_contents('assets/mydata_models/menu.json');
+            $jsonMenu = file_get_contents('assets/myjson/left_menu.json');
             //print $jsonMenu;
             $dataMenu = json_decode($jsonMenu);
 			//print_r($dataMenu);exit;

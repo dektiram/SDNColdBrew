@@ -1,5 +1,5 @@
 <script type="text/javascript" src="<?php print base_url().'assets/'; ?>myjs/tdbfFunctionCollection.js"></script>
-<script type="text/javascript" src="<?php print base_url().'assets/'; ?>myjs/environment.js"></script>
+<script type="text/javascript" src="<?php print base_url().'assets/'; ?>myjs/controller.js"></script>
         <section class="content">
           <div class="row">
             <div class="col-xs-12">

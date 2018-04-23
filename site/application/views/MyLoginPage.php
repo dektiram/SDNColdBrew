@@ -116,3 +116,10 @@
     </div><!-- /.login-box -->
   </body>
 </html>
+<script type="text/javascript">
+	$('#txtPassword').keypress(function(e) {
+	    if(e.which == 13) {
+	        myLogin();
+	    }
+	});
+</script>

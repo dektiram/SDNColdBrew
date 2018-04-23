@@ -1,0 +1,470 @@
+{
+	"desc_stats" : {"name": "Desc stats", "reqMethod": "GET", "url": "/stats/desc/<dpid>"},
+	"all_flows_stats" : {"name": "All flows stats", "reqMethod": "GET", "url": "/stats/flow/<dpid>"},
+	"flows_stats_filtered_by_fields" : {"name": "Flows stats filtered by fields", "reqMethod": "POST", "url": "/stats/flow/<dpid>",
+		"templates":[
+			{
+				"name":"Simple",
+				"defParam":{
+					"table_id": 0,
+					"out_port": 2,
+					"cookie": 1,
+					"cookie_mask": 1,
+					"match":{
+						"in_port":1
+					}
+				}
+			}
+		]
+	},
+	"aggregate_flow_stats" : {"name": "Aggregate flow stats", "reqMethod": "GET", "url": "/stats/aggregateflow/<dpid>"},
+	"aggregate_flow_stats_filtered_by_fields" : {"name": "Aggregate flow stats filtered by fields", "reqMethod": "POST", "url": "/stats/aggregateflow/<dpid>",
+		"templates":[
+			{
+				"name":"Simple",
+				"defParam":{
+					"table_id": 0,
+				     "out_port": 2,
+				     "cookie": 1,
+				     "cookie_mask": 1,
+				     "match":{
+				         "in_port":1
+				     }
+				}
+			}
+		]
+	},
+	"table_stats" : {"name": "Table stats", "reqMethod": "GET", "url": "/stats/table/<dpid>"},
+	"table_features" : {"name": "Table features", "reqMethod": "GET", "url": "/stats/tablefeatures/<dpid>"},
+	"ports_stats" : {"name": "Ports stats", "reqMethod": "GET", "url": "/stats/port/<dpid>"},
+	"ports_description" : {"name": "Ports description", "reqMethod": "GET", "url": "/stats/portdesc/<dpid>"},
+	"queues_stats" : {"name": "Queues stats", "reqMethod": "GET", "url": "/stats/queue/<dpid>"},
+	"queues_config" : {"name": "Queues config", "reqMethod": "GET", "url": "/stats/queueconfig/<dpid>"},
+	"queues_description" : {"name": "Queues description", "reqMethod": "GET", "url": "/stats/queuedesc/<dpid>"},
+	"groups_stats" : {"name": "Groups stats", "reqMethod": "GET", "url": "/stats/group/<dpid>"},
+	"group_description_stats" : {"name": "Group description stats", "reqMethod": "GET", "url": "/stats/groupdesc/<dpid>"},
+	"group_features_stats" : {"name": "Group features stats", "reqMethod": "GET", "url": "/stats/groupfeatures/<dpid>"},
+	"meters_stats" : {"name": "Meters stats", "reqMethod": "GET", "url": "/stats/meter/<dpid>"},
+	"meter_config_stats" : {"name": "Meter config stats", "reqMethod": "GET", "url": "/stats/meterconfig/<dpid>"},
+	"meter_description_stats" : {"name": "Meter description stats", "reqMethod": "GET", "url": "/stats/meterconfig/<dpid>"},
+	"meter_features_stats" : {"name": "Meter features stats", "reqMethod": "GET", "url": "/stats/meterfeatures/<dpid>"},
+	"role" : {"name": "Role", "reqMethod": "GET", "url": "/stats/role/<dpid>"},
+	"add_a_flow_entry" : {"name": "Add a flow entry", "reqMethod": "POST", "url": "/stats/flowentry/add",
+		"templates":[
+			{
+				"name" : "1.3_Simple",
+				"defParam" : {
+					"dpid" : 0,
+					"match":{
+						"in_port" : 1
+					},
+					"actions" : [
+						{
+							"type" : "OUTPUT",
+							"port" : 2
+						}
+					]
+				}															
+			},
+			{
+				"name":"1.3_OUTPUT",
+				"defParam":{
+				    "dpid": 1,
+				    "cookie": 1,
+				    "cookie_mask": 1,
+				    "table_id": 0,
+				    "idle_timeout": 30,
+				    "hard_timeout": 30,
+				    "priority": 11111,
+				    "flags": 1,
+				    "match":{
+				        "in_port":1
+				    },
+				    "actions":[
+				        {
+				            "type":"OUTPUT",
+				            "port": 2
+				        }
+				    ]
+				 }
+			},
+			{
+				"name":"1.3_GOTO_TABLE",
+				"defParam":{
+				    "dpid": 1,
+				    "priority": 22222,
+				    "match":{
+				        "in_port":1
+				    },
+				    "actions":[
+				        {
+				            "type":"GOTO_TABLE",
+				            "table_id": 1
+				        }
+				    ]
+				 }
+			},
+			{
+				"name":"1.3_WRITE_METADATA",
+				"defParam":{
+				    "dpid": 1,
+				    "priority": 33333,
+				    "match":{
+				        "in_port":1
+				    },
+				    "actions":[
+				        {
+				            "type":"WRITE_METADATA",
+				            "metadata": 1,
+				            "metadata_mask": 1
+				        }
+				    ]
+				}
+			},
+			{
+				"name":"1.3_METER",
+				"defParam":{
+				    "dpid": 1,
+				    "priority": 44444,
+				    "match":{
+				        "in_port":1
+				    },
+				    "actions":[
+				        {
+				            "type":"METER",
+				            "meter_id": 1
+				        }
+				    ]
+				 }
+			},
+			{
+				"name" : "1.4_Simple",
+				"defParam" : {
+					"dpid" : 0,
+					"match":{
+						"in_port" : 1
+					},
+					"instructions": [
+				        {
+				            "type": "APPLY_ACTIONS",
+							"actions" : [
+								{
+									"type" : "OUTPUT",
+									"port" : 2
+								}
+							]
+						}
+					]
+				}															
+			},
+			{
+				"name":"1.4_OUTPUT",
+				"defParam":{
+				    "dpid": 1,
+				    "cookie": 1,
+				    "cookie_mask": 1,
+				    "table_id": 0,
+				    "idle_timeout": 30,
+				    "hard_timeout": 30,
+				    "priority": 11111,
+				    "flags": 1,
+				    "match":{
+				        "in_port":1
+				    },
+				    "instructions": [
+				        {
+				            "type": "APPLY_ACTIONS",
+				            "actions": [
+				                {
+				                    "max_len": 65535,
+				                    "port": 2,
+				                    "type": "OUTPUT"
+				                }
+				            ]
+				        }
+				    ]
+				 }
+			},
+			{
+				"name":"1.4_GOTO_TABLE",
+				"defParam":{
+				    "dpid": 1,
+				    "priority": 22222,
+				    "match":{
+				        "in_port":1
+				    },
+				    "instructions": [
+				        {
+				            "type":"GOTO_TABLE",
+				            "table_id": 1
+				        }
+				    ]
+				 }
+			},
+			{
+				"name":"1.4_WRITE_METADATA",
+				"defParam":{
+				    "dpid": 1,
+				    "priority": 33333,
+				    "match":{
+				        "in_port":1
+				    },
+				    "instructions": [
+				        {
+				            "type":"WRITE_METADATA",
+				            "metadata": 1,
+				            "metadata_mask": 1
+				        }
+				    ]
+				 }
+			},
+			{
+				"name":"1.4_METER",
+				"defParam":{
+				    "dpid": 1,
+				    "priority": 44444,
+				    "match":{
+				        "in_port":1
+				    },
+				    "instructions": [
+				        {
+				            "type":"METER",
+				            "meter_id": 1
+				        }
+				    ]
+				 }
+			}
+		]
+	},
+	"modify_all_matching_flow_entries" : {"name": "Modify all matching flow entries", "reqMethod": "POST", "url": "/stats/flowentry/modify",
+		"templates":[
+			{
+				"name":"Simple",
+				"defParam":{
+				    "dpid": 1,
+				    "cookie": 1,
+				    "cookie_mask": 1,
+				    "table_id": 0,
+				    "idle_timeout": 30,
+				    "hard_timeout": 30,
+				    "priority": 11111,
+				    "flags": 1,
+				    "match":{
+				        "in_port":1
+				    },
+				    "actions":[
+				        {
+				            "type":"OUTPUT",
+				            "port": 2
+				        }
+				    ]
+				 }
+			}
+		]
+	},
+	"modify_flow_entry_strictly" : {"name": "Modify flow entry strictly", "reqMethod": "POST", "url": "/stats/flowentry/modify_strict",
+		"templates":[
+			{
+				"name":"Simple",
+				"defParam":{
+				    "dpid": 1,
+				    "cookie": 1,
+				    "cookie_mask": 1,
+				    "table_id": 0,
+				    "idle_timeout": 30,
+				    "hard_timeout": 30,
+				    "priority": 11111,
+				    "flags": 1,
+				    "match":{
+				        "in_port":1
+				    },
+				    "actions":[
+				        {
+				            "type":"OUTPUT",
+				            "port": 2
+				        }
+				    ]
+				 }
+			}
+		]
+	},
+	"delete_all_matching_flow_entries" : {"name": "Delete all matching flow entries", "reqMethod": "POST", "url": "/stats/flowentry/delete",
+		"templates":[
+			{
+				"name":"Simple",
+				"defParam":{
+				    "dpid": 1,
+				    "cookie": 1,
+				    "cookie_mask": 1,
+				    "table_id": 0,
+				    "idle_timeout": 30,
+				    "hard_timeout": 30,
+				    "priority": 11111,
+				    "flags": 1,
+				    "match":{
+				        "in_port":1
+				    },
+				    "actions":[
+				        {
+				            "type":"OUTPUT",
+				            "port": 2
+				        }
+				    ]
+				 }
+			}
+		]
+	},
+	"delete_flow_entry_strictly" : {"name": "Delete flow entry strictly", "reqMethod": "POST", "url": "/stats/flowentry/delete_strict",
+		"templates":[
+			{
+				"name":"Simple",
+				"defParam":{
+				    "dpid": 1,
+				    "cookie": 1,
+				    "cookie_mask": 1,
+				    "table_id": 0,
+				    "idle_timeout": 30,
+				    "hard_timeout": 30,
+				    "priority": 11111,
+				    "flags": 1,
+				    "match":{
+				        "in_port":1
+				    },
+				    "actions":[
+				        {
+				            "type":"OUTPUT",
+				            "port": 2
+				        }
+				    ]
+				 }
+			}
+		]
+	},
+	"delete_all_flow_entries" : {"name": "Delete all flow entries", "reqMethod": "DELETE", "url": "/stats/flowentry/clear/<dpid>"},
+	"add_a_group_entry" : {"name": "Add a group entry", "reqMethod": "POST", "url": "/stats/groupentry/add",
+		"templates":[
+			{
+				"name":"Simple",
+				"defParam":{
+				    "dpid": 1,
+				    "type": "ALL",
+				    "group_id": 1,
+				    "buckets": [
+				        {
+				            "actions": [
+				                {
+				                    "type": "OUTPUT",
+				                    "port": 1
+				                }
+				            ]
+				        }
+				    ]
+				 }
+			}
+		]
+	},
+	"modify_a_group_entry" : {"name": "Modify a group entry", "reqMethod": "POST", "url": "/stats/groupentry/modify",
+		"templates":[
+			{
+				"name":"Simple",
+				"defParam":{
+				    "dpid": 1,
+				    "type": "ALL",
+				    "group_id": 1,
+				    "buckets": [
+				        {
+				            "actions": [
+				                {
+				                    "type": "OUTPUT",
+				                    "port": 1
+				                }
+				            ]
+				        }
+				    ]
+				 }
+			}
+		]
+	},
+	"delete_a_group_entry" : {"name": "Delete a group entry", "reqMethod": "POST", "url": "/stats/groupentry/delete",
+		"templates":[
+			{
+				"name":"Simple",
+				"defParam":{
+				    "dpid": 1,
+				    "group_id": 1
+				 }
+			}
+		]
+	},
+	"modify_the_behavior_of_the_port" : {"name": "Modify the behavior of the port", "reqMethod": "POST", "url": "/stats/portdesc/modify",
+		"templates":[
+			{
+				"name":"Simple",
+				"defParam":{
+				    "dpid": 1,
+				    "port_no": 1,
+				    "config": 1,
+				    "mask": 1
+				}
+			}
+		]
+	},
+	"add_a_meter_entry" : {"name": "Add a meter entry", "reqMethod": "POST", "url": "/stats/meterentry/add",
+		"templates":[
+			{
+				"name":"Simple",
+				"defParam":{
+				    "dpid": 1,
+				    "flags": "KBPS",
+				    "meter_id": 1,
+				    "bands": [
+				        {
+				            "type": "DROP",
+				            "rate": 1000
+				        }
+				    ]
+				 }
+			}
+		]
+	},
+	"modify_a_meter_entry" : {"name": "Modify a meter entry", "reqMethod": "POST", "url": "/stats/meterentry/modify",
+		"templates":[
+			{
+				"name":"Simple",
+				"defParam":{
+				    "dpid": 1,
+				    "meter_id": 1,
+				    "flags": "KBPS",
+				    "bands": [
+				        {
+				            "type": "DROP",
+				            "rate": 1000
+				        }
+				    ]
+				 }
+			}
+		]
+	},
+	"delete_a_meter_entry" : {"name": "Delete a meter entry", "reqMethod": "POST", "url": "/stats/meterentry/delete",
+		"templates":[
+			{
+				"name":"Simple",
+				"defParam":{
+				    "dpid": 1,
+				    "meter_id": 1
+				 }
+			}
+		]
+	},
+	"modify_role" : {"name": "Modify role", "reqMethod": "POST", "url": "/stats/role",
+		"templates":[
+			{
+				"name":"Simple",
+				"defParam":{
+				    "dpid": 1,
+				    "role": "MASTER"
+				 }
+			}
+		]
+	}
+}

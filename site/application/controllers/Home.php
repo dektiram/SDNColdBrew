@@ -30,6 +30,8 @@ class Home extends CI_Controller {
 		exit();
 	}
 	public function index(){
+		header('Location: '.base_url().'Topology');
+		exit();
 		$this->TdbfSystem->ifNotLoginRedirectToLoginPage();
 		
 		//$this->load->library('../controllers/tdbfCtl',null,'MyTdbfCtl1');

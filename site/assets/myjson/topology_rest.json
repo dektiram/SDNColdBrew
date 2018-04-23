@@ -1,0 +1,8 @@
+{
+	"all_the_switches" : {"name": "All the switches", "reqMethod": "GET", "url": "/v1.0/topology/switches"},
+	"switch" : {"name": "Switch", "reqMethod": "GET", "url": "/v1.0/topology/switches/<dpid>"},
+	"all_the_links" : {"name": "All the links", "reqMethod": "GET", "url": "/v1.0/topology/links"},
+	"the_links_of_a_switch" : {"name": "The links of a switch", "reqMethod": "GET", "url": "/v1.0/topology/links/<dpid>"},
+	"all_the_hosts" : {"name": "All the hosts", "reqMethod": "GET", "url": "/v1.0/topology/hosts"},
+	"hosts_of_a_switch" : {"name": "Hosts of a switch", "reqMethod": "GET", "url": "/v1.0/topology/hosts/<dpid>"}
+}

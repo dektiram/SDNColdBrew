@@ -10,8 +10,13 @@
                 </div>.box-header -->
                 <div class="box-body">
                 	<div class="myAlertBox"></div>
-                	If you run a ryu controller after the network (mininet) is up then you need this action for network discovery. If you run the ryu controller before the network (mininet) is running, then you do not need to do this action.
+                	This feature used when using mininet on local machine with this site.<br />
+                	Because each host on mininet doesn't send any packet periodictly, you need to trigger each host to send ICMP packet each so the switch can learn mac address fro this packet.
 	              	<br />
+	              	Hostname:<br />
+	              	<input type="radio" name="rdHostname" value="Auto" checked="checked"/> Default detection (h1, h2, h3, ...)<br />
+	              	<input type="radio" name="rdHostname" value="Manual"/> Manual, input hostname list below separate by space:<br />
+	              	<textarea id="hostnameList" name="hostnameList"></textarea><br />
 	              	<button id="btnPingTrigger" class="btn btn-primary btn-xs">Ping trigger</button>
 					<div class="myDebugBox"></div>
                 </div><!-- /.box-body -->
