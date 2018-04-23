@@ -32,6 +32,8 @@ class SdnColdBrewInternalService(object):
 	def shelExecAndGetOutput(self,cmds, wait=True):
 		#print cmds
 		scriptDir = os.path.dirname(os.path.realpath(__file__))+'/tmp-script/'
+		if(not os.path.isdir(scriptDir)):
+			os.makedirs(scriptDir)
 		strTimeStamp = datetime.datetime.now().strftime("%Y%m%d%H%M%S")
 		scriptFile = scriptDir + strTimeStamp+'.'+uuid.uuid4().hex+'.sh'
 		file = open(scriptFile,'w')
