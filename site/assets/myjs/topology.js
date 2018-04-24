@@ -130,7 +130,6 @@ function refreshTopology(){
 	});
 };
 
-
 function loadPopupMenuItems(){
 	var url = APP_CONTROLLER_URL+'getTopologyPopupMenu/raw';
 	myAjaxRequest(url,{},{},true,'json',function(dtJson){
@@ -211,6 +210,10 @@ function createContextMenu(){
 						displayModalDataNet(itemKey, popupMenu.ofctl.items.ofctl_get.items[itemKey].name, objNetData);
 					}else if(itemKey.substring(0,10) == 'ofctl_set_'){
 						showFormRyuRestOfctl(itemKey, objNetData.dpid);
+					}else if(itemKey == 'change_label'){
+						$('#inpObjNetData').val(JSON.stringify(objNetData));
+						$('#inpObjNetLabel').val(objNetData.label);
+						$('#modal-change-label-form').modal('show');
 					}
 				},
 				items:  popupMenu
@@ -220,6 +223,25 @@ function createContextMenu(){
 			}else{
 				return option;
 			}
+		}
+	});
+}
+
+function changeObjNetLabel(){
+	var objNetData = $('#inpObjNetData').val();
+	var objNetLabel = $('#inpObjNetLabel').val();
+	var postParam = {
+		'objNetData':objNetData,
+		'objNetLabel':objNetLabel
+	};
+	var url = APP_CONTROLLER_URL+'changeObjNetLabel';
+	myAjaxRequest(url,postParam,{},true,'json',function(dtJson){
+		$('#modal-change-label-form').modal('hide');
+		//console.log(dtJson);
+		if(dtJson.status == 'SUCCESS'){
+			myPageAlert('success','Change label success.',true,3000);
+		}else{
+			myPageAlert('warning','Change label fail.',true,3000);
 		}
 	});
 }

@@ -193,9 +193,9 @@ function sleep(delay) {
 	while (new Date().getTime() < start + delay);
 };
 
-function myPageAlert(pAlertType,pMessage,pAutoClose,pWaitCloseSeconds){
+function myPageAlert(pAlertType,pMessage,pAutoClose,pWaitCloseMiliSeconds){
 	var pDateNow=new Date();
-	sleep(1);
+	//sleep(1);
 	var pDivId='myAlert'+ pDateNow.getFullYear()+ (pDateNow.getMonth()+1)+ pDateNow.getDate()+ pDateNow.getHours()+ pDateNow.getMinutes()+ pDateNow.getSeconds()+ pDateNow.getMilliseconds();
 	var pAlertDivObj= document.getElementsByClassName('myAlertBox')[0];
 	var pOldHtmlStr=pAlertDivObj.innerHTML;
@@ -210,5 +210,5 @@ function myPageAlert(pAlertType,pMessage,pAutoClose,pWaitCloseSeconds){
 			$('#'+pDivId).remove();
 			//alert('complete');
 		});
-	}, pWaitCloseSeconds);
+	}, pWaitCloseMiliSeconds);
 }

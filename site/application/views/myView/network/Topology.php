@@ -102,4 +102,25 @@
 			</div>
 		</div><!-- /.modal-content -->
 	</div><!-- /.modal-dialog -->
+</div><!-- /.modal -->    
+  
+<div class="modal fade bs-example-modal-md" id="modal-change-label-form">
+	<div class="modal-dialog modal-md modal-change-label-form-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				<h4 class="modal-title">Change label</h4>
+			</div>
+			<div class="modal-body">
+				<input type="hidden" id="inpObjNetData"/>
+				<input type="text" class="form-control" value="" id="inpObjNetLabel" />
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-xs btn-default pull-left" data-dismiss="modal">Close</button>
+				<button type="button" class="btn btn-xs btn-primary" onclick="changeObjNetLabel();">Save</button>
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
 </div><!-- /.modal -->

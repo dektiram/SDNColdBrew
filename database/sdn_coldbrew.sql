@@ -35,7 +35,7 @@ CREATE TABLE `t_host` (
 
 LOCK TABLES `t_host` WRITE;
 /*!40000 ALTER TABLE `t_host` DISABLE KEYS */;
-INSERT INTO `t_host` VALUES ('00:00:00:00:00:01','h1'),('00:00:00:00:00:02','h2'),('00:00:00:00:00:03','h3');
+INSERT INTO `t_host` VALUES ('2a:a2:4a:93:50:71','h1'),('e6:79:9e:2c:de:ad','h2');
 /*!40000 ALTER TABLE `t_host` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -84,7 +84,7 @@ CREATE TABLE `t_switch` (
 
 LOCK TABLES `t_switch` WRITE;
 /*!40000 ALTER TABLE `t_switch` DISABLE KEYS */;
-INSERT INTO `t_switch` VALUES ('0000000000000001','0000000000000001'),('0000000000000002','0000000000000002'),('0000000000000003','0000000000000003');
+INSERT INTO `t_switch` VALUES ('0000000000000001','s2'),('0000000000000002','s1');
 /*!40000 ALTER TABLE `t_switch` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -314,7 +314,7 @@ CREATE TABLE `tbl_setting` (
 
 LOCK TABLES `tbl_setting` WRITE;
 /*!40000 ALTER TABLE `tbl_setting` DISABLE KEYS */;
-INSERT INTO `tbl_setting` VALUES ('ryu_packaged_path','/usr/local/lib/python2.7/dist-packages/ryu/',NULL),('mininet_util_path','/home/tarom/sdn-tutorial/mininet/util/',NULL),('ryu_additional_script_path','/home/tarom/sdn-tutorial/additional-ryu-script/',NULL),('mininet_additional_topo_script_path','/home/tarom/sdn-tutorial/additional-mininet-topo-script/',NULL),('sflowrt_path','/home/tarom/sdn-tutorial/sflow-rt/',NULL),('sflowrt_url','http://localhost:8008/',NULL),('snmp_community','public',NULL),('snmp_version','2c',NULL),('ryu_script_default_selected','ofctl_rest.py,rest_conf_switch.py,rest_topology.py,/home/tarom/sdn-tutorial/additional-ryu-script/SendHeaderToController.py',NULL),('ryu_shell_capture_file','/home/tarom/sdn-tutorial/shell-capture/ryu.capture',NULL),('mininet_shell_capture_file','/home/tarom/sdn-tutorial/shell-capture/mininet.capture',NULL),('internal_service_url','http://127.0.0.1:8989/',NULL),('sflowrt_shell_capture_file','/home/tarom/sdn-tutorial/shell-capture/sflowrt.capture',NULL);
+INSERT INTO `tbl_setting` VALUES ('ryu_packaged_path','/usr/local/lib/python2.7/dist-packages/ryu/',NULL),('mininet_util_path','/home/tarom/sdn-tutorial/mininet/util/',NULL),('ryu_additional_script_path','/home/tarom/sdn-tutorial/additional-ryu-script/',NULL),('sflowrt_path','/home/tarom/sdn-tutorial/sflow-rt/',NULL),('ryu_script_default_selected','ofctl_rest.py,rest_conf_switch.py,rest_topology.py,/home/tarom/sdn-tutorial/additional-ryu-script/OnMissTableToController.py',NULL),('ryu_shell_capture_file','/home/tarom/sdn-tutorial/shell-capture/ryu.capture',NULL),('internal_service_url','http://127.0.0.1:8989/',NULL),('sflowrt_shell_capture_file','/home/tarom/sdn-tutorial/shell-capture/sflowrt.capture',NULL);
 /*!40000 ALTER TABLE `tbl_setting` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -379,4 +379,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-04-23 16:12:33
+-- Dump completed on 2018-04-24 19:52:55

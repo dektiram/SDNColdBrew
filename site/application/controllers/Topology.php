@@ -185,6 +185,24 @@ class Topology extends CI_Controller {
 				$this->TdbfSystem->displayToBrowser($pHTMLMyContent,$pMainPageLoadMode,$pPageParam);
 				break;
 		}
-		
+	}
+	
+	public function changeObjNetLabel(){
+		$param = $this->TdbfSystem->hexStr2Json($_POST['tdbfPageParam']);
+		$objNetData = json_decode($param['objNetData'], TRUE);
+		//print_r($objNetData);
+		$objNetLabel = $param['objNetLabel'];
+		if($objNetData['type'] == 'SWITCH'){
+			$strSQL = 'insert into `t_switch` (`dpid`,`label`) values ("'.$objNetData['dpid'].'","'.$objNetLabel.'") 
+						on duplicate key update `label`="'.$objNetLabel.'"';
+		}else{
+			$strSQL = 'insert into `t_host` (`hw_addr`,`label`) values ("'.$objNetData['mac'].'","'.$objNetLabel.'") 
+						on duplicate key update `label`="'.$objNetLabel.'"';
+		}
+		if($this->TdbfSystem->tdbfExecSQL($strSQL)){
+			print json_encode(array('status'=>'SUCCESS'));
+		}else{
+			print json_encode(array('status'=>'FAIL'));
+		}
 	}
 }
