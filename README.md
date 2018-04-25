@@ -11,28 +11,34 @@
 	```
 	$ apt-get install mininet
 	```
-4. Install ryu controller
+4. Download mininet
+	Because with step number 3 does not include `mininet/utils/m`, you need to download it manually. It use to access pingall from web UI.
+	```
+	$ cd /home/ubuntu/
+	$ git clone git://github.com/mininet/mininet
+	```
+5. Install ryu controller
 	```
 	$ apt-get install python-pip
 	$ pip install ryu
 	```
-5. Download SDNColdBrew repository
+6. Download SDNColdBrew repository
 	```
 	$ cd /home/ubuntu/
 	$ git clone https://github.com/dektiram/SDNColdBrew.git
 	$ chown -R www-data.www-data SDNColdBrew/site/
 	```
-6. Download sflow-RT
+7. Download sflow-RT
 	```
 	$ wget https://inmon.com/products/sFlow-RT/sflow-rt.tar.gz
 	$ tar -xvzf sflow-rt.tar.gz
 	```
-7. Install apache, PHP and MySQL
+8. Install apache, PHP and MySQL
 	```
 	$ apt-get install openssl apache2 libapache2-mod-php php php-mbstring php-mcrypt php-xml php-mysql mysql-server
 	$ mysql_secure_installation
 	```
-8. Create and import database
+9. Create and import database
 	```
 	$ mysql -u root -p
 		mysql> create database sdn_coldbrew;
@@ -42,7 +48,7 @@
 		
 	$ mysql -u root -p sdn_coldbrew < SDNColdBrew/database/sdn_coldbrew.sql
 	```
-9. Configuring apache
+10. Configuring apache
 	```
 	$ vi /etc/apache2/sites-available/sdncoldbrew.conf
 		Alias /sdncoldbrew /home/ubuntu/SDNColdBrew/site
@@ -63,18 +69,20 @@
 	$ ln -s ../mods-available/rewrite.load rewrite.load
 	$ systemctl restart apache2
 	```
-10. Make shell capture file directory
+11. Make shell capture file directory
 	```
 	$ cd /home/ubuntu/
 	$ mkdir shell-capture
 	```
-11. Running SDNColdBrew internal script in screen
+12. Running SDNColdBrew internal script in screen
 	```
 	$ screen
 	$ cd /home/ubuntu/SDNColdBrew/internal-service/
 	$ python sdn-coldbrew.py
 	CTRL+A+D
 	```
-12. Change SDNColdBrew setting
-13. Installation video
+13. Change SDNColdBrew setting
+	Change setting with your environment or if you follow this setup step setting like image below:
+	(images/default_settings.png)
+14. Installation video
 ## Demo

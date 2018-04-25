@@ -92,5 +92,13 @@
                 "linkUrl":"Tools/mininetPingAll"
             }
         ]
+    },
+    {
+        "id":"appSettings",
+        "label":"Settings",
+        "icon":"fa fa-gear",
+        "hintText":"Settings",
+        "linkType":"internal",
+        "linkUrl":"Administrator/appSettings"
     }
 ]

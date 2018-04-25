@@ -78,11 +78,11 @@ class Administrator extends CI_Controller {
 		$pHTMLMyContent.=$s1;
 		$this->TdbfSystem->displayToBrowser($pHTMLMyContent,$pMainPageLoadMode,$this->MyTdbfCtlAppSelectAction->TDBFPARAM);		
 	}
-	public function outlet(){
+	public function appSettings(){
 		$this->TdbfSystem->ifNotLoginRedirectToLoginPage();
 		
-		$this->load->library('../controllers/TdbfCtlOutlet',null,'MyTdbfCtlOutlet');
-		$pMyTdbfCtl_X1=$this->MyTdbfCtlOutlet;
+		$this->load->library('../controllers/TdbfCtlAppSettings',null,'MyTdbfCtlAppSettings');
+		$pMyTdbfCtl_X1=$this->MyTdbfCtlAppSettings;
 		
 		$pMyTdbfCtl_X1->init($this,$pMyTdbfCtl_X1,$this->TdbfSystem->USERINFO);
 				
@@ -90,28 +90,6 @@ class Administrator extends CI_Controller {
 		$pMainPageLoadMode='full';
 		$s1=$pMyTdbfCtl_X1->display('',$pMainPageLoadMode);
 		$pHTMLMyContent.=$s1;
-		$pHeaderStructuralMenu=array();
-		$pHeaderStructuralMenu[0]='<a href="#"><i class="fa fa-dashboard"></i>Data Master</a>';
-		$pHeaderStructuralMenu[1]='Domain Category';
-		$pMyTdbfCtl_X1->TDBFPARAM['headerStructuralMenu']=$pHeaderStructuralMenu;
-		$this->TdbfSystem->displayToBrowser($pHTMLMyContent,$pMainPageLoadMode,$pMyTdbfCtl_X1->TDBFPARAM);		
-	}
-	public function selectOutlet(){
-		$this->TdbfSystem->ifNotLoginRedirectToLoginPage();
-		
-		$this->load->library('../controllers/TdbfCtlSelectOutlet',null,'MyTdbfCtlSelectOutlet');
-		$pMyTdbfCtl_X1=$this->MyTdbfCtlSelectOutlet;
-		
-		$pMyTdbfCtl_X1->init($this,$pMyTdbfCtl_X1,$this->TdbfSystem->USERINFO);
-				
-		$pHTMLMyContent='';
-		$pMainPageLoadMode='full';
-		$s1=$pMyTdbfCtl_X1->display('',$pMainPageLoadMode);
-		$pHTMLMyContent.=$s1;
-		$pHeaderStructuralMenu=array();
-		$pHeaderStructuralMenu[0]='<a href="#"><i class="fa fa-dashboard"></i>Data Master</a>';
-		$pHeaderStructuralMenu[1]='Domain Category';
-		$pMyTdbfCtl_X1->TDBFPARAM['headerStructuralMenu']=$pHeaderStructuralMenu;
 		$this->TdbfSystem->displayToBrowser($pHTMLMyContent,$pMainPageLoadMode,$pMyTdbfCtl_X1->TDBFPARAM);		
 	}
 }

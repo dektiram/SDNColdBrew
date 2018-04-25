@@ -339,7 +339,7 @@ tdbfDataModelEditor.prototype.myDlgServerFileOk=function(pBtnOkObj){
 			data: pFormData,
 			async: false,
 	  		success: function(DtHTML){
-	  			//alert(DtHTML);
+	  			//console.log(DtHTML);
 				pClassThis.myOnLoadDataModelFromFile(DtHTML);
 			}
 		});
@@ -356,6 +356,7 @@ tdbfDataModelEditor.prototype.myDlgServerFileOk=function(pBtnOkObj){
 			data: pFormData,
 			async: false,
 	  		success: function(DtHTML){
+	  			console.log(DtHTML);
 	  			if(DtHTML=='OK'){
 	  				alert('Save success.');
 	  			}else{
