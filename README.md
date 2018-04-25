@@ -83,6 +83,6 @@
 	```
 13. Change SDNColdBrew setting
 	Change setting with your environment or if you follow this setup step setting like image below:
-	(images/default_settings.png)
+	![alt text](https://github.com/dektiram/SDNColdBrew/raw/tarom/images/default_settings.png)
 14. Installation video
 ## Demo
