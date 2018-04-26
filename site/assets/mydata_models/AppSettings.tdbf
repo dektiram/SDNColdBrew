@@ -35,7 +35,50 @@
 				"ctlObj": "txtString",
 				"defaultValue": "",
 				"lookupValue": "",
+				"extAttr": "readonly=\"readonly\"",
+				"note": ""
+			},
+			"viewTable": {
+				"sqlSelect": true,
+				"visible": false,
+				"listValue": false,
+				"exportExcel": true,
+				"selectReturn": false,
+				"textBefore": "",
+				"textAfter": "",
+				"lookupValue": "",
+				"colPos": 2,
+				"cellExtAttr": ""
+			}
+		},
+		{
+			"isKey": false,
+			"notNull": true,
+			"name": "desc",
+			"caption": "Description",
+			"dataType": "varchar",
+			"dataLength": 255,
+			"defaultValue": "",
+			"createForm": {
+				"used": true,
+				"readOnly": false,
+				"notNull": true,
+				"visible": true,
+				"ctlObj": "txtString",
+				"defaultValue": "",
+				"lookupValue": "",
 				"extAttr": "",
+				"note": ""
+			},
+			"updateForm": {
+				"used": true,
+				"readOnly": true,
+				"notNull": true,
+				"visible": true,
+				"ctlObj": "txtString",
+				"defaultValue": "",
+				"lookupValue": "",
+				"extAttr": "readonly=\"readonly\"",
 				"note": ""
 			},
 			"viewTable": {
@@ -47,7 +90,7 @@
 				"textBefore": "",
 				"textAfter": "",
 				"lookupValue": "",
-				"colPos": 2,
+				"colPos": 3,
 				"cellExtAttr": ""
 			}
 		},
@@ -90,50 +133,7 @@
 				"textBefore": "",
 				"textAfter": "",
 				"lookupValue": "",
-				"colPos": 3,
-				"cellExtAttr": ""
-			}
-		},
-		{
-			"isKey": false,
-			"notNull": true,
-			"name": "desc",
-			"caption": "Description",
-			"dataType": "varchar",
-			"dataLength": 255,
-			"defaultValue": "",
-			"createForm": {
-				"used": true,
-				"readOnly": false,
-				"notNull": true,
-				"visible": true,
-				"ctlObj": "txtString",
-				"defaultValue": "",
-				"lookupValue": "",
-				"extAttr": "",
-				"note": ""
-			},
-			"updateForm": {
-				"used": true,
-				"readOnly": false,
-				"notNull": true,
-				"visible": true,
-				"ctlObj": "txtString",
-				"defaultValue": "",
-				"lookupValue": "",
-				"extAttr": "",
-				"note": ""
-			},
-			"viewTable": {
-				"sqlSelect": true,
-				"visible": true,
-				"listValue": false,
-				"exportExcel": true,
-				"selectReturn": false,
-				"textBefore": "",
-				"textAfter": "",
-				"lookupValue": "",
-				"colPos": 6,
+				"colPos": 4,
 				"cellExtAttr": ""
 			}
 		}

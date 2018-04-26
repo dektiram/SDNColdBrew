@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.7.21, for Linux (x86_64)
+-- MySQL dump 10.13  Distrib 5.7.22, for Linux (x86_64)
 --
 -- Host: localhost    Database: sdn_coldbrew
 -- ------------------------------------------------------
--- Server version	5.7.21-0ubuntu0.16.04.1
+-- Server version	5.7.22-0ubuntu0.16.04.1
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -314,7 +314,7 @@ CREATE TABLE `tbl_setting` (
 
 LOCK TABLES `tbl_setting` WRITE;
 /*!40000 ALTER TABLE `tbl_setting` DISABLE KEYS */;
-INSERT INTO `tbl_setting` VALUES ('ryu_packaged_path','/usr/local/lib/python2.7/dist-packages/ryu/',NULL),('mininet_util_path','/home/tarom/sdn-tutorial/mininet/util/',NULL),('ryu_additional_script_path','/home/tarom/sdn-tutorial/additional-ryu-script/',NULL),('sflowrt_path','/home/tarom/sdn-tutorial/sflow-rt/',NULL),('ryu_script_default_selected','ofctl_rest.py,rest_conf_switch.py,rest_topology.py,/home/tarom/sdn-tutorial/additional-ryu-script/OnMissTableToController.py',NULL),('ryu_shell_capture_file','/home/tarom/sdn-tutorial/shell-capture/ryu.capture',NULL),('internal_service_url','http://127.0.0.1:8989/',NULL),('sflowrt_shell_capture_file','/home/tarom/sdn-tutorial/shell-capture/sflowrt.capture',NULL);
+INSERT INTO `tbl_setting` VALUES ('ryu_packaged_path','/usr/local/lib/python2.7/dist-packages/ryu/','Installed Ryu packaged path'),('mininet_util_path','/home/ubuntu/mininet/util/','Mininet utils path'),('ryu_additional_script_path','/home/ubuntu/SDNColdBrew/additional-ryu-script/','Additional Ryu sctipt path'),('sflowrt_path','/home/ubuntu/sflow-rt/','Sflow-RT path'),('ryu_script_default_selected','ofctl_rest.py,rest_conf_switch.py,rest_topology.py,/home/ubuntu/SDNColdBrew/additional-ryu-script/OnMissTableToController.py','Default Ryu application selected (on menu Controller)'),('ryu_shell_capture_file','/home/ubuntu/shell-capture/ryu.capture','File to save ryu-manager shell output'),('internal_service_url','http://127.0.0.1:8989/','SDN ColdBrew internal service URL'),('sflowrt_shell_capture_file','/home/ubuntu/shell-capture/sflowrt.capture','File to save sflow-RT shell output');
 /*!40000 ALTER TABLE `tbl_setting` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -379,4 +379,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-04-24 19:52:55
+-- Dump completed on 2018-04-26  8:57:51

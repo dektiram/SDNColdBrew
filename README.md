@@ -22,6 +22,12 @@
 	$ apt-get install python-pip
 	$ pip install ryu
 	```
+6. Install python module
+	```
+	$ pip install WebOb
+	$ pip install paste
+	$ pip install psutil
+	```
 6. Download SDNColdBrew repository
 	```
 	$ cd /home/ubuntu/
@@ -33,12 +39,17 @@
 	$ wget https://inmon.com/products/sFlow-RT/sflow-rt.tar.gz
 	$ tar -xvzf sflow-rt.tar.gz
 	```
-8. Install apache, PHP and MySQL
+8. Install java
+	Running sflow-RT need java.
 	```
-	$ apt-get install openssl apache2 libapache2-mod-php php php-mbstring php-mcrypt php-xml php-mysql mysql-server
+	$ apt-get install default-jre
+	```
+9. Install apache, PHP and MySQL
+	```
+	$ apt-get install openssl apache2 libapache2-mod-php php php-mbstring php-mcrypt php-xml php-mysql php-curl mysql-server
 	$ mysql_secure_installation
 	```
-9. Create and import database
+10. Create and import database
 	```
 	$ mysql -u root -p
 		mysql> create database sdn_coldbrew;
@@ -48,7 +59,7 @@
 		
 	$ mysql -u root -p sdn_coldbrew < SDNColdBrew/database/sdn_coldbrew.sql
 	```
-10. Configuring apache
+11. Configuring apache
 	```
 	$ vi /etc/apache2/sites-available/sdncoldbrew.conf
 		Alias /sdncoldbrew /home/ubuntu/SDNColdBrew/site
@@ -69,20 +80,20 @@
 	$ ln -s ../mods-available/rewrite.load rewrite.load
 	$ systemctl restart apache2
 	```
-11. Make shell capture file directory
+12. Make shell capture file directory
 	```
 	$ cd /home/ubuntu/
 	$ mkdir shell-capture
 	```
-12. Running SDNColdBrew internal script in screen
+13. Running SDNColdBrew internal script in screen
 	```
 	$ screen
 	$ cd /home/ubuntu/SDNColdBrew/internal-service/
 	$ python sdn-coldbrew.py
 	CTRL+A+D
 	```
-13. Change SDNColdBrew setting
+14. Change SDNColdBrew setting
 	Change setting with your environment or if you follow this setup step setting like image below:
 	![alt text](https://github.com/dektiram/SDNColdBrew/raw/tarom/images/default_settings.png)
-14. Installation video
+15. Installation video
 ## Demo
