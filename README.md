@@ -102,7 +102,7 @@ Password : superadmin
 Change setting with your environment or if you follow this setup step setting like image below :
 ![alt text](https://github.com/dektiram/SDNColdBrew/raw/tarom/images/default_settings.png)
 #### 16. Installation video
-This video link is guide to do installation step. Visit 
+This video link is guide to do installation step. Visit [Installation video](https://www.youtube.com/watch?v=lbyivwjvc3I)
 ## Screenshot
 ![alt text](https://github.com/dektiram/SDNColdBrew/raw/tarom/images/controller.png)
 ![alt text](https://github.com/dektiram/SDNColdBrew/raw/tarom/images/topology.png)
