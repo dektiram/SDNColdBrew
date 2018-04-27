@@ -92,10 +92,16 @@ $ cd /home/ubuntu/SDNColdBrew/internal-service/
 $ python sdn-coldbrew.py
 CTRL+A+D
 ```
-#### 14. Change SDNColdBrew setting
+#### 14. Access dashboard
+Go to URL https://[YourIP]/sdncoldbrew/
+
+Username : superadmin
+
+Password : superadmin
+#### 15. Change SDNColdBrew setting
 Change setting with your environment or if you follow this setup step setting like image below :
 ![alt text](https://github.com/dektiram/SDNColdBrew/raw/tarom/images/default_settings.png)
-#### 15. Installation video
+#### 16. Installation video
 This video link is guide to do installation step. Visit 
 ## Screenshot
 ![alt text](https://github.com/dektiram/SDNColdBrew/raw/tarom/images/controller.png)
