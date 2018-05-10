@@ -1,55 +1,56 @@
 ## Setup
-#### 1. Make sure under root
+#### 1. This setup tutorial is tested on Ubuntu 16.04 LTS
+#### 2. Make sure under root
 ```
 $ sudo su
 ```
-#### 2. Update Ubuntu
+#### 3. Update Ubuntu
 ```
 $ apt-get update
 ```
-#### 3. Install mininet
+#### 4. Install mininet
 ```
 $ apt-get install mininet
 ```
-#### 4. Download mininet
-Because with step number 3 does not include `mininet/utils/m`, you need to download it manually. It use to access pingall from web UI.
+#### 5. Download mininet
+Because with step number 4 does not include `mininet/utils/m`, you need to download it manually. It use to access pingall from web UI.
 ```
 $ cd /home/ubuntu/
 $ git clone git://github.com/mininet/mininet
 ```
-#### 5. Install ryu controller
+#### 6. Install ryu controller
 ```
 $ apt-get install python-pip
 $ pip install ryu
 ```
-#### 6. Install python module
+#### 7. Install python module
 ```
 $ pip install WebOb
 $ pip install paste
 $ pip install psutil
 ```
-#### 6. Download SDNColdBrew repository
+#### 8. Download SDNColdBrew repository
 ```
 $ cd /home/ubuntu/
 $ git clone https://github.com/dektiram/SDNColdBrew.git
 $ chown -R www-data.www-data SDNColdBrew/site/
 ```
-#### 7. Download sflow-RT
+#### 9. Download sflow-RT
 ```
 $ wget https://inmon.com/products/sFlow-RT/sflow-rt.tar.gz
 $ tar -xvzf sflow-rt.tar.gz
 ```
-#### 8. Install java
+#### 10. Install java
 Running sflow-RT need java.
 ```
 $ apt-get install default-jre
 ```
-#### 9. Install apache, PHP and MySQL
+#### 11. Install apache, PHP and MySQL
 ```
 $ apt-get install openssl apache2 libapache2-mod-php php php-mbstring php-mcrypt php-xml php-mysql php-curl mysql-server
 $ mysql_secure_installation
 ```
-#### 10. Create and import database
+#### 12. Create and import database
 ```
 $ mysql -u root -p
 	mysql> create database sdn_coldbrew;
@@ -59,7 +60,7 @@ $ mysql -u root -p
 	
 $ mysql -u root -p sdn_coldbrew < SDNColdBrew/database/sdn_coldbrew.sql
 ```
-#### 11. Configuring apache
+#### 13. Configuring apache
 ```
 $ vi /etc/apache2/sites-available/sdncoldbrew.conf
 	Alias /sdncoldbrew /home/ubuntu/SDNColdBrew/site
@@ -80,28 +81,28 @@ $ ln -s ../mods-available/ssl.load ssl.load
 $ ln -s ../mods-available/rewrite.load rewrite.load
 $ systemctl restart apache2
 ```
-#### 12. Make shell capture file directory
+#### 14. Make shell capture file directory
 ```
 $ cd /home/ubuntu/
 $ mkdir shell-capture
 ```
-#### 13. Running SDNColdBrew internal script in screen
+#### 15. Running SDNColdBrew internal script in screen
 ```
 $ screen
 $ cd /home/ubuntu/SDNColdBrew/internal-service/
 $ python sdn-coldbrew.py
 CTRL+A+D
 ```
-#### 14. Access dashboard
+#### 16. Access dashboard
 Go to URL https://[YourIP]/sdncoldbrew/
 
 Username : superadmin
 
 Password : superadmin
-#### 15. Change SDNColdBrew setting
+#### 17. Change SDNColdBrew setting
 Change setting with your environment or if you follow this setup step setting like image below :
 ![alt text](https://github.com/dektiram/SDNColdBrew/raw/tarom/images/default_settings.png)
-#### 16. Installation video
+#### 18. Installation video
 This video link is guide to do installation step. Visit [Installation video](https://www.youtube.com/watch?v=lbyivwjvc3I)
 ## Screenshot
 ![alt text](https://github.com/dektiram/SDNColdBrew/raw/tarom/images/controller.png)
